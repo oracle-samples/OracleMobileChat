@@ -1,0 +1,65 @@
+<!--
+ Copyright (c) 2018, Oracle and/or its affiliates. All rights reserved.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+
+<div id="incidentMainPage" role="main" class="oj-applayout-content">
+
+<div class="" style="height: 100vh;position:fixed; top:0; width:100vw;">
+
+  <div id="detailsPanel" class="push-content-padding-map demo-map-panel">
+    <div class="oj-hybrid-padding">
+      <div class="oj-flex-bar demo-name-duration-label">
+        <div class="oj-flex-bar-start" data-bind="with: $parents[1].incidentData">
+          <oj-bind-text value="[[customer.firstName + ' ' + customer.lastName]]"></oj-bind-text>
+        </div>
+        <div class="oj-flex-bar-end">
+          <oj-bind-text value="[[duration]]"></oj-bind-text>
+        </div>
+      </div>
+      <div class="oj-flex-bar oj-text-sm oj-hybrid-padding-bottom demo-secondary-label">
+        <div class="oj-flex-bar-start" data-bind="with: $parents[1].incidentData">
+          <oj-bind-text value="[[location.formattedAddress.split('\n')[0].replace(/(,$)/g, '')]]"></oj-bind-text>
+        </div>
+        <div class="oj-flex-bar-end">
+          <oj-bind-text value="[[distance]]"></oj-bind-text>
+        </div>
+      </div>
+      <div class="oj-flex-bar oj-text-sm demo-secondary-label">
+        <div class="oj-flex-bar-start" data-bind="with: $parents[1].incidentData">
+          <oj-bind-text value="[[location.formattedAddress.split('\n')[1]]]"></oj-bind-text>
+        </div>
+      </div>
+      <div class="oj-flex-bar">
+        <div class="oj-flex-bar-start oj-sm-align-items-center demo-flex-zero">
+          <span class="demo-map-phone-icon"></span>
+        </div>
+        <div class="oj-flex-bar-middle" data-bind="with: $parents[1].incidentData">
+          <a :href="[['tel:'+customer.mobile]]">
+            <oj-bind-text value="[[customer.mobile]]"></oj-bind-text>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="map" style="height:100%;width:100%;" data-bind="incidentMap:map"></div>
+
+<!-- Google Maps Marker start -->
+<!--   <div style="display:none;">
+    <div id="incidentMarker" class="oj-flex-bar demo-incident-marker" data-bind="click: showDetails">
+      <div class="demo-incident-marker-duration oj-flex-bar-start">
+        <div data-bind="text: duration" class="oj-hybrid-padding-horizontal"></div>
+      </div>
+      <div class="demo-incident-marker-customer oj-flex-bar-middle" data-bind="with: $parents[1].incidentData">
+        <span data-bind="text: customer.firstName + ' ' + customer.lastName" class="oj-hybrid-padding-horizontal"></span>
+      </div>
+      <div class="oj-flex-bar-end oj-sm-align-items-center">
+        <div role="presentation" aria-hidden="true" class="oj-fwk-icon oj-listview-drill-icon"></div>
+      </div>
+    </div>
+  </div> -->
+<!-- Google Maps Marker end -->
+
+</div>
+</div>

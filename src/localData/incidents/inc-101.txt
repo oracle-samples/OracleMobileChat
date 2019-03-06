@@ -1,0 +1,36 @@
+{
+  "id": "inc-101",
+  "problem": "Leaky Water Heater",
+  "description": "water heater leaks water incessantly",
+  "category": "plumbing",
+  "picture": null,
+  "status": "open",
+  "priority": "high",
+  "createdOn": "2016-07-25T09:00:41+00:00",
+  "lastUpdatedOn": "",
+  "customerId": "cus-104",
+  "_technicianUsername": "hcr",
+  "locationId": "loc-4",
+  "read": true,
+  "revNum": 1,
+  "activitiesRevNum": 1,
+  "customer": {
+    "id": "cus-104",
+    "username": "lsmith",
+    "firstName": "Lynn",
+    "lastName": "Smith",
+    "locationId": "loc-4",
+    "mobile": "+16505067000",
+    "home": "+15105552121",
+    "email": "lsmith@somewhere.com",
+    "role": "Customer",
+    "revNum": 1
+  },
+  "location": {
+    "formattedAddress": "100 Park Street, Alameda, CA 94501 USA",
+    "latitude": "37.763389",
+    "longitude": "-122.243514",
+    "id": "loc-4",
+    "revNum": 1
+  }
+}

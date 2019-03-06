@@ -1,0 +1,76 @@
+<!--
+ Copyright (c) 2018, Oracle and/or its affiliates. All rights reserved.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-applayout-page">
+  <div class="oj-applayout-fixed-top">
+    <header id="custAddHeader" role="banner" class="oj-flex-bar oj-hybrid-applayout-header oj-sm-align-items-center" data-bind="ojModule: custAddHeaderSettings()"></header>
+  </div>
+
+  <div class="oj-applayout-content">
+    <div role="main" class="oj-hybrid-applayout-content">
+
+      <input type="file" id="upload-new-customer-pic" class="demo-hide-photo-input" accept="image/*" aria-hidden="true">
+
+      <div class="demo-profile-top-section demo-profile-top-section-gradient-grey">
+        <div class="demo-profile-photo-container">
+          <img id="cust-add-photo" alt="customer photo" class="demo-profile-photo" :src="[[imgSrc]]">
+        </div>
+
+        <a id="changePhotoBtn" href="#" on-click="[[changePhoto]]" class="oj-text-sm">Change</a>
+      </div>
+
+      <div class="oj-form-layout">
+        <div class="oj-form oj-hybrid-padding">
+          <div class="oj-form-control-group" role="group" data-bind="with: customer">
+            <div class="demo-profile-item-content">
+              <oj-label id='addFirstNameLabel'>First Name</oj-label>
+              <oj-input-text id='addFirstNameInput' spellcheck='false' autocorrect='off' autocapitalize=words aria-labelledby='addFirstNameLabel' value='{{firstName}}' read-only='false' autofocus></oj-input-text>
+            </div>
+
+            <div class="demo-profile-item-content">
+              <oj-label id='addLastNameLabel'>Last Name</oj-label>
+              <oj-input-text id='addLastNameInput' spellcheck='false' autocorrect='off' autocapitalize=words aria-labelledby='addLastNameLabel' value='{{lastName}}' read-only='false'></oj-input-text>
+            </div>
+            <div class="demo-profile-item-content">
+              <oj-label id='addMobileLabel'>Mobile</oj-label>
+              <oj-input-text id='addMobileInput' aria-labelledby='addMobileLabel' value='{{mobile}}' read-only='false'></oj-input-text>
+            </div>
+            <div class="demo-profile-item-content">
+              <oj-label id='addHomeLabel'>Home</oj-label>
+              <oj-input-text id='addHomeInput' aria-labelledby='addHomeLabel' value='{{home}}' read-only='false'></oj-input-text>
+            </div>
+
+            <div class="demo-profile-item-content">
+              <oj-label id='addEmailLabel'>Email</oj-label>
+              <oj-input-text id='addEmailInput' aria-labelledby='addEmailLabel' value='{{email}}' read-only='false'></oj-input-text>
+            </div>
+
+            <div class="demo-profile-item-content">
+              <oj-label id='addStreet1Label'>Street Line 1</oj-label>
+              <oj-input-text id='addStreet1Input' spellcheck='false' autocorrect='off' aria-labelledby='addStreet1Label' value='{{address.street1}}' read-only='false'></oj-input-text>
+            </div>
+            <div class="demo-profile-item-content">
+              <oj-label id='addStreet2Label'>Street Line 2</oj-label>
+              <oj-input-text id='addStreet2Input' spellcheck='false' autocorrect='off' aria-labelledby='addStreet2Label' value='{{address.street2}}' read-only='false'></oj-input-text>
+            </div>
+            <div class="demo-profile-item-content">
+              <oj-label id='addCityLabel'>City</oj-label>
+              <oj-input-text id='addCityInput' spellcheck='false' autocorrect='off' aria-labelledby='addCityLabel' value='{{address.city}}' read-only='false'></oj-input-text>
+            <div class="demo-profile-item-content">
+              <oj-label id='addStateLabel'>State</oj-label>
+              <oj-input-text id='addStateInput' spellcheck='false' autocorrect='off' aria-labelledby='addStateLabel' value='{{address.state}}' read-only='false'></oj-input-text>
+            </div>
+            <div class="demo-profile-item-content">
+              <oj-label id='addZipLabel'>Zip Code</oj-label>
+              <oj-input-text id='addZipInput' aria-labelledby='addZipLabel' value='{{address.zip}}' read-only='false'></oj-input-text>
+            <div class="demo-profile-item-content">
+              <oj-label id='addCountryLabel'>Country</oj-label>
+              <oj-input-text id='addCountryInput' aria-labelledby='addCountryLabel' value='{{address.country}}' read-only='false'></oj-input-text>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

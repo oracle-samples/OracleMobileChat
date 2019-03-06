@@ -1,0 +1,20 @@
+<!--
+ Copyright (c) 2018, Oracle and/or its affiliates. All rights reserved.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-form-layout" data-bind="with: $parent.newIncidentModel">
+	<div class="oj-form oj-hybrid-padding">
+    <oj-label id='summaryProblemLabel'>Problem</oj-label>
+		<oj-input-text aria-labelledby='summaryProblemLabel' placeholder='Please enter the problem.' value='[[problem]]' read-only='true'></oj-input-text>
+    <oj-label id='summaryCategoryLabel'>Category</oj-label>
+		<oj-input-text aria-labelledby='summaryCategoryLabel' value='[[$parent.categoryLabel(category())]]' read-only='true'></oj-input-text>
+    <oj-label id='summaryPriorityLabel'>Priority</oj-label>
+    <oj-input-text aria-labelledby='summaryPriorityLabel' value='[[$parent.priorityLabel(priority())]]' read-only='true'></oj-input-text>
+		<oj-label id='summaryCustomerLabel'>Customer</oj-label>
+		<oj-input-text aria-labelledby='summaryCustomerLabel' placeholder='Please select a customer.' value='[[customerName]]' read-only='true'></oj-input-text>
+    <oj-bind-if test="[[picture()]]">
+        <oj-label id='summaryPhotoLabel'>Photo</oj-label>
+        <img aria-labelledby="summaryPhotoLabel" :src="[[picture()]]" style="width: 100%;" alt="incident photo">
+    </oj-bind-if>
+	</div>
+</div>

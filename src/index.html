@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!--
+ Copyright (c) 2018, Oracle and/or its affiliates. All rights reserved.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<html id="htmldoc" lang="en-us">
+  <head>
+    <title>FixItFast</title>
+    <link rel="icon" sizes="212x212" href="img/FIF_launcher2_icon.png">
+
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+
+    <!-- for Safari on iOS -->
+    <meta name="apple-mobile-web-app-title" content="FixItFast">
+    <link rel="apple-touch-icon" sizes="212x212" href="img/FIF_launcher2_icon_rect.png">
+    <link rel="apple-touch-startup-image" href="img/screen.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- for Chrome on Android -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- injector:theme -->
+    <link rel="stylesheet" href="css/fif/android/fif.css"/>
+    <!-- endinjector -->
+    <link rel="stylesheet" href="chat.css" />
+    <script data-main="js/main" src="js/libs/require/require.js"></script>
+
+  </head>
+  <body>
+    <div id="page" class="oj-offcanvas-outer-wrapper oj-offcanvas-page">
+      <oj-bind-if test="[[$root.isChatAllowed()]]">
+		<div>
+        <oj-button id='startChat' class='demo-fab' on-oj-action='[[startChat]]' chroming='half' display='icons'>
+          <span class='oj-fwk-icon demo-chat-icon'></span>
+        </oj-button>
+	    <h6 class="demo-unread-chats">
+	      <span class="demo-chat-badge-sm demo-fab-badge" :style.display="[[ $root.newMessages() > 0 ? '' : 'none']]">
+	    	<oj-bind-text value="[[$root.newMessages()]]"></oj-bind-text>
+	      </span>
+	    </h6>
+		</div>
+      </oj-bind-if>
+      <!-- nav drawer -->
+      <div id="navDrawer" role="navigation" class="demo-navdrawer oj-hybrid-applayout-offcanvas oj-offcanvas-start oj-contrast-marker">
+        <!-- User Profile -->
+        <div class="demo-navdrawer-content-wrapper oj-flex oj-sm-flex-direction-column oj-sm-flex-wrap-nowrap">
+          <div class="demo-navdrawer-content">
+            <div class="demo-navdrawer-profile-section" data-bind="with: userProfileModel">
+              <!-- <div class="profile-photo-container"> -->
+                <div class="demo-profile-photo-container">
+                  <img id="profile-photo" class="demo-profile-photo" alt="user profile photo" src='css/images/Add_avatar@2x.png' :src="[[photo]]">
+                </div>
+              <!-- </div> -->
+
+              <h2 class="demo-profile-name">
+                <span><oj-bind-text value="[[firstName() + ' ' + lastName()]]"></oj-bind-text></span>
+              </h2>
+            </div>
+
+            <!-- Navigation -->
+            <oj-navigation-list id='appNavList' class='oj-navigationlist-stack-icon-label'
+              on-selection-changed='[[drawerChange]]'
+              selection='{{router.stateId}}'>
+              <ul>
+
+              <li id="incidents">
+                <a href="#">
+                <span class="oj-navigationlist-item-icon demo-icon-font-24 demo-fire-icon-24"></span>
+                Incidents
+                <div class="demo-incidents-badge" :style.display="[[ unreadIncidentsNum() > 0 ? '' : 'none']]">
+                  <span><oj-bind-text value="[[unreadIncidentsNum]]"></oj-bind-text></span>
+                </div>
+                </a>
+              </li>
+              <li id="customers">
+                <a href="#">
+                <span class="oj-navigationlist-item-icon demo-icon-font-24 demo-people-icon-24"></span>
+                Customers
+                </a>
+              </li>
+              <li id="profile">
+                <a href="#">
+                <span class="oj-navigationlist-item-icon demo-icon-font-24 demo-person-icon-24"></span>
+                Profile
+                </a>
+              </li>
+              <li id="settings">
+                <a href="#">
+                <span class="oj-navigationlist-item-icon demo-icon-font-24 demo-gear-icon-24"></span>
+                Settings
+                </a>
+              </li>
+              <li id="about" style="margin-bottom: 12px;overflow: visible">
+                <a href="#">
+                <span class="oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24"></span>
+                About
+                </a>
+              </li>
+
+              <li id="signin" style="margin-top: 25px">
+                <a href="#">
+                <span class="oj-navigationlist-item-icon demo-icon-font-24 demo-signout-icon-24"></span>
+                Sign Out
+                </a>
+              </li>
+              </ul>
+            </oj-navigation-list>
+          </div>
+
+          <!-- Footer -->
+          <footer class="oj-sm-margin-2x demo-flex-zero">
+            <div class="demo-ifixitfast-icon"></div>
+          </footer>
+        </div>
+
+      </div>
+
+      <!-- page -->
+      <div id="pageContent" data-bind="ojModule: moduleConfig" style="min-height: 100vh;">
+      </div>
+
+      <!-- bottom drawer: camera action sheet for hybrid app -->
+      <div id="bottomDrawer" class="demo-bottom-offcanvas oj-offcanvas-bottom">
+        <oj-list-view class="demo-camera-capture-list" selection-mode="none">
+          <ul>
+            <li id="takePhoto" on-click="[[function() { return updateProfilePhoto(1); }]]">
+              <a href="#">Take a photo</a>
+            </li>
+            <li id="choosePhoto" on-click="[[function() { return updateProfilePhoto(0); }]]">
+              <a href="#">Choose a Photo</a>
+            </li>
+            <li id="cancel" on-click="[[closeBottomDrawer]]">
+              <a href="#">Cancel</a>
+            </li>
+          </ul>
+        </oj-list-view>
+      </div>
+      <!-- <div id="connectionDrawer" data-bind="ojModule: 'connectionMessageDrawer'" class="demo-connection-drawer demo-bottom-offcanvas oj-offcanvas-bottom">
+      </div> -->
+      <div id="connectionDrawer" class="demo-connection-drawer demo-bottom-offcanvas oj-offcanvas-bottom">
+
+        <div class="oj-flex-bar" style="height: 48px">
+          <div class="oj-flex-bar-start" style="width: 48px;">
+            <oj-bind-if test="[[connectionDrawer.online()]]">
+              <img src="css/images/online_icon.png" alt="online" height="24" width="24" style="margin: auto;"/>
+            </oj-bind-if>
+            <oj-bind-if test="[[!connectionDrawer.online()]]">
+              <img src="css/images/offline_icon.png" alt="online" height="24" width="24" style="margin: auto;"/>
+            </oj-bind-if>
+
+          </div>
+          <div class="oj-flex-bar-middle oj-sm-padding-2x-horizontal" style="line-height: 48px;">
+            <span><oj-bind-text value="[[connectionDrawer.message]]"></oj-bind-text></span>
+          </div>
+          <div class="oj-flex-bar-end oj-flex oj-sm-align-items-center">
+            <oj-button on-click="[[connectionDrawer.closeDrawer]]" display='icons' chroming='half'>
+              <span slot='startIcon' class='oj-fwk-icon oj-fwk-icon-cross'></span>
+              Close
+            </oj-button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Maps API script -->
+    <!-- <script defer async type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script> -->
+
+    <script type="text/javascript">
+      /* START: service worker code */
+      /*
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js').then(function(registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }).catch(function(err) {
+          // registration failed :(
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      }
+      */
+      /* END: service worker code */
+
+    </script>
+
+  </body>
+</html>

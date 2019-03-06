@@ -1,0 +1,22 @@
+{
+  "name": "FixItFast",
+  "version": "1.0.0",
+  "description": "An Oracle JavaScript Extension Toolkit (JET) mobile app",
+  "dependencies": {
+    "@oracle/oraclejet": "^5.1.0"
+  },
+  "devDependencies": {
+    "@oracle/grunt-oraclejet": "~5.0.0",
+    "@oracle/oraclejet-tooling": "^5.0.1",
+    "fs-extra": "0.30.0",
+    "grunt": "^1.0.1",
+    "load-grunt-config": "0.19.2",
+    "node-sass": "^4.7.2",
+    "qunit": "^2.4.1",
+    "qunit-reporter-junit": "^1.1.1"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "private": true
+}

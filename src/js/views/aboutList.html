@@ -1,0 +1,34 @@
+<!--
+ Copyright (c) 2018, Oracle and/or its affiliates. All rights reserved.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+
+<div class="oj-hybrid-padding">
+  <p>
+    FixItFast provide key capabilities for your technicians in the field to help solve your customer incidents faster. This application includes incident management, mapping of incident locations, activity updates for incidents, ability to access customer profiles and much more.
+  </p>
+  <div id="title" class="oj-text-sm">Version 5.0.0</div>
+</div>
+
+<div class="oj-hybrid-padding-horizontal demo-about-list-header">More Info</div>
+<oj-list-view id='aboutListView' aria-label='about content list' class='demo-no-padding-li'
+    data='[[aboutOptions]]'
+    item.renderer='[[oj.KnockoutTemplateUtils.getRenderer("about_item_template", true)]]'
+    selection-mode='single'
+    style='border:none;overflow: auto;'
+    on-selection-changed='[[$parent.optionChange]]'>
+</oj-list-view>
+
+
+<script type="text/html" id="about_item_template">
+  <li>
+    <div class="oj-flex-bar demo-about-item-container oj-hybrid-padding">
+      <div class="oj-flex-bar-start">
+        <span class="demo-about-item"><oj-bind-text value="[[label]]"></oj-bind-text></span>
+      </div>
+      <div class="oj-flex-bar-end oj-sm-align-items-center">
+        <div role="presentation" aria-hidden="true" class="oj-fwk-icon oj-listview-drill-icon"></div>
+      </div>
+    </div>
+  </li>
+</script>

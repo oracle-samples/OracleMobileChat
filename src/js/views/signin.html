@@ -1,0 +1,45 @@
+<!--
+ Copyright (c) 2018, Oracle and/or its affiliates. All rights reserved.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-applayout-page">
+  <div class="demo-signin-bg oj-flex oj-sm-justify-content-flex-end">
+    <div class="oj-flex-item oj-sm-9 demo-signin-column oj-flex oj-sm-flex-direction-column oj-sm-flex-wrap-nowrap">
+
+        <div class="demo-circle-flex-item oj-flex-item oj-sm-align-self-flex-end oj-flex oj-sm-align-items-flex-end">
+          <div class="demo-circle-logo-container">
+            <div class="demo-circle-logo"></div>
+          </div>
+        </div>
+
+        <div class="oj-flex-item">
+          <div class="oj-hybrid-padding-start">
+            <h1 class="demo-signin-appname">Oracle<div style="font-weight: 400; padding-top: 4px;">FixItFast</div></h1>
+          </div>
+
+          <div class="demo-signin-form-container oj-hybrid-padding">
+            <div class="demo-signin-form oj-hybrid-padding-vertical">
+              <form method="post" action="" name="signInForm">
+                <oj-input-text id='MobilePTUsername' placeholder='User Name' spellcheck='false' autocorrect='off' autocapitalize=off aria-label='User Name' value='{{userName}}' required='true'></oj-input-text>
+                <oj-input-password id='MobilePTPassword' placeholder='Password' aria-label='password' value='{{passWord}}' required='true'></oj-input-password>
+              </form>
+
+              <div class="oj-hybrid-padding-top">
+                <oj-button id='signInBtn' class='demo-signin-button' chroming='full'
+                  on-oj-action='[[signIn]]'><span class="demo-signin-button-label"><span class='oj-hybrid-padding-horizontal'>Sign In</span></span></oj-button>
+                <a id="cannotSignInBtn" href="javascript:;" class="forgotLinkM">Can't sign in?</a>
+              </div>
+
+              <oj-checkboxset id='rememberUserNameCheckBox' aria-label='Remeber User Name' value='{{rememberUserName}}' class='oj-checkboxset-no-chrome oj-checkboxset-input-start'>
+                <oj-option id='rememberUserName' value='remember'>Remember User Name</oj-option>
+              </oj-checkboxset>
+            </div>
+          </div>
+        </div>
+
+      <div  class="oj-flex-item oj-sm-align-self-flex-end demo-flex-zero" style="padding: 20px;">
+        <img src="css/images/oracle-black.svg" alt="Oracle" title="Oracle" height="11">
+      </div>
+    </div>
+  </div>
+</div>

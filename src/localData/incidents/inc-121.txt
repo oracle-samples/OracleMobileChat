@@ -1,0 +1,36 @@
+{
+  "id": "inc-121",
+  "problem": "clothes in dryer are scalding hot!",
+  "description": "despite a clean lint filter clothes are coming out too hot. potential liability",
+  "category": "appliance",
+  "picture": null,
+  "status": "open",
+  "priority": "high",
+  "createdOn": "2016-08-03T09:00:41+00:00",
+  "lastUpdatedOn": "",
+  "customerId": "cus-103",
+  "_technicianUsername": "hcr",
+  "locationId": "loc-3",
+  "read": true,
+  "revNum": 1,
+  "activitiesRevNum": 1,
+  "customer": {
+    "id": "cus-103",
+    "username": "rbarker",
+    "firstName": "Ricky",
+    "lastName": "Barker",
+    "locationId": "loc-3",
+    "mobile": "+16505067000",
+    "home": "+15105552121",
+    "email": "rbarker@somewhere.com",
+    "role": "Customer",
+    "revNum": 1
+  },
+  "location": {
+    "formattedAddress": "200 First Street, Livermore, CA 94566 USA",
+    "latitude": "37.660406",
+    "longitude": "-121.876038",
+    "id": "loc-3",
+    "revNum": 1
+  }
+}

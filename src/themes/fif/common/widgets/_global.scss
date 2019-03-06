@@ -1,0 +1,170 @@
+/* global rules */
+html { box-sizing: border-box; }
+
+*, *:before, *:after { box-sizing: inherit; }
+
+.demo-flex-zero {
+  @include oj-flex-property(0 0 auto);
+}
+
+// offline grayscale effect
+body.offline .demo-item-not-cached {
+  filter: grayscale(100%);
+  transition: filter 500ms linear;
+}
+
+// transparent header is used on the tour page and about page
+.demo-transparent-header {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.demo-dont-break-out {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.demo-flex-bar-no-overflow {
+  min-width: 0;
+}
+
+.demo-ellipsis-word-truncation {
+  @include oj-flex-property(1 1 auto);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.demo-solid-bg {
+  background-color: $neutralColor1;
+}
+
+/* -------------------------------------------------------- */
+/* floating action button */
+.demo-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.demo-fab.oj-button.oj-default.oj-button-half-chrome {
+  box-shadow: -1px 7px 12px -2px $fifFabBoxShadowColor;
+}
+
+.demo-fab > .oj-button-button {
+  border: 0;
+}
+
+.demo-fab2 {
+  position: fixed;
+  right: 20px;
+  bottom: 85px;
+  z-index: 1;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.demo-fab2.oj-button.oj-default.oj-button-half-chrome {
+  box-shadow: -1px 7px 12px -2px $fifFabBoxShadowColor;
+}
+
+.demo-fab2 > .oj-button-button {
+  border: 0;
+}
+
+
+/* --------------------------------- */
+/* camera action sheet style */
+.demo-bottom-offcanvas {
+  z-index: 200;
+}
+
+.demo-camera-capture-list {
+  background: $neutralColor1;
+
+  li {
+    text-align: center;
+    background: none;
+  }
+}
+
+/* --------------------------------- */
+/* icons */
+@font-face {
+  font-family: 'AppFont';
+  src: url($fifCommonFontDir + 'App_iconfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.demo-icon-font-24 {
+  @include oj-icon-font-base(
+       $fontSize:  24px,
+       $fontFamily: AppFont);
+}
+
+.demo-icon, .demo-icon::before {
+  height: 24px;
+  width: 24px;
+}
+
+.oj-hybrid-applayout-header-icon-back.demo-icon, .oj-hybrid-applayout-header-icon-back.demo-icon::before {
+  height: 16px;
+  height: 16px;
+}
+
+// add icon
+.demo-add-icon {
+  height: 50px;
+  width: 50px;
+  margin: 0 !important;
+}
+
+.demo-add-icon::before {
+  height: 50px;
+  width: 50px;
+  content: '';
+  background: url($fifCommonImageDir + "FAB_icon@2x.png");
+  background-size: 50px;
+}
+
+.demo-location-icon-24:before {
+  content: "\e90d";
+}
+.demo-jet-icon-24:before {
+  content: "\e90c";
+}
+.demo-camera-icon-24:before {
+  content: "\e90e";
+}
+.demo-edit-icon-24:before {
+  content: "\e906";
+}
+
+.demo-connection-drawer {
+  z-index: 100;
+  background-color: $neutralColor5;
+  border-top: 1px solid $neutralColor8;
+}
+
+/* --------------------------------- */
+/* custom element update workarounds */
+.oj-button .oj-button-button {
+  min-height: 100%;
+  margin-bottom: 0;
+}

@@ -1,0 +1,72 @@
+<!--
+ Copyright (c) 2018, Oracle and/or its affiliates. All rights reserved.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-applayout-page">
+  <div class="oj-applayout-fixed-top">
+    <header role="banner" class="oj-flex-bar oj-hybrid-applayout-header oj-sm-align-items-center" data-bind="ojModule: settingsHeaderSettings">
+    </header>
+  </div>
+
+  <div class="oj-applayout-content">
+    <div role="main" class="oj-hybrid-applayout-content">
+      <div style="padding: 10px;">
+        <h4>CONNECTIONS</h4>
+        <form id="settingsForm">
+          <div class="oj-flex oj-sm-justify-content-space-between">
+            <oj-label id='switchLabel' for='switch' class='oj-label-inline'>Mobile Cloud Service</oj-label>
+            <oj-switch id='switch' value='{{$root.isOnlineMode}}'></oj-switch>
+          </div>
+          <div id="product">
+            <div class="oj-flex oj-sm-justify-content-space-between">
+              <oj-label id='productSwitchLabel' for='productSwitch' class='oj-label-inline'>Chat Cloud Service</oj-label>
+              <oj-switch id='productSwitch' value='{{$root.isChatCloudServiceMode}}'></oj-switch>
+            </div>
+            <oj-bind-if test="[[$root.isChatCloudServiceMode]]">
+              <div class='oj-flex-bar'>
+                <div class='oj-flex-bar-start'>      
+                  <oj-label id="productLabelId" class="oj-label-inline">Product</oj-label>
+                </div>
+                <div class='oj-flex-bar-middle'>                 
+                  <!-- You need to set the labelled-by attribute to make 
+                  this accessible. -->
+                  <oj-radioset labelled-by="productLabelId" class="oj-choice-direction-row" value="{{$root.product}}">
+                    <oj-option id="sc" value="oracleServiceCloud">Oracle Service Cloud</oj-option>
+                    <oj-option id="ec" value="oracleEngagementCloud">Oracle Engagement Cloud</oj-option>
+                  </oj-radioset>
+                </div>
+              </div>
+              <div>
+                <oj-label class='oj-label-inline'>API User : </oj-label>
+                <oj-input-text class="border" id='user' value="{{$root.apiUser}}" >
+                </oj-input-text>
+              </div>
+              <div>
+                <oj-label class='oj-label-inline'>API Password : </oj-label>
+                <oj-input-password class="border" id='password' value="{{$root.apiPwd}}" >
+                </oj-input-password>
+              </div>
+              <div>
+                <oj-label class='oj-label-inline'>Site/Endpoint : </oj-label>
+                <oj-input-text class="border" id='site' value="{{$root.site}}" >
+                </oj-input-text>
+              </div>
+            </oj-bind-if>
+          </div>  
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id='bottomPanel' class='oj-applayout-fixed-bottom'>
+    <footer class="oj-hybrid-applayout-footer">
+      <oj-bind-if test="[[!$root.endPointPresentAndValid() || $root.chatStatus == 'FAILED']]">
+        <div id='errorEndPoint' class="orc-error" style="color: red;">
+          <span data-bind='text: [[$root.chatFailureMessage]]'>Site/Endpoint invalid or not working, please and try again.</span>
+        </div>
+      </oj-bind-if>
+    </footer>
+  </div>
+
+</div>
+

@@ -1,0 +1,49 @@
+
+
+$fifCommonImageDir: "../../images/";
+$fifCommonFontDir:   "../../fonts/";
+
+$fifPaginationDotBgColor: $secondaryTextColor;
+
+// priority colors apply to the dashboard text and also the icon border
+$fifHighPriorityIconColor:         #f0403a;
+$fifNormalPriorityIconColor:       #377db3;
+$fifLowPriorityIconColor:          #608c49;
+
+$fifOpenStatusIconColor:           #8d909b;
+$fifAcceptedStatusIconColor:       #269e9e;
+$fifClosedStatusIconColor:         #d97638;
+
+$fifTourSubtitleColor:         #b7b9bc;
+
+$fifDashboardBgColor:          $headerBgColor;
+$fifDashboardBarChartBgColor:  #3B3D3F;
+
+// fab = floating action button
+$fifFabBoxShadowColor:         #9c9c9c;
+
+$fifPrimaryLabelColor:         $headerTextColor;
+$fifSecondaryLabelColor:       $secondaryTextColor;
+
+$fifAboutPageHeaderColor:      #fff;
+
+$fifMobileIconBgColor:         #0572ce;
+$fifOfficeIconBgColor:         #F7BB47;
+$fifEmailIconBgColor:          #17ABE3;
+$fifAddressIconBgColor:        #de893e;
+
+$fifRssIconBgColor:            #7DBD5B;
+$fifTwitterIconBgColor:        #3FBFF5;
+$fifChatIconBgColor:           #EF8135;
+$fifYoutubeIconBgColor:        #E14937;
+$fifGplusIconBgColor:          #238BC7;
+
+$fifColoredGradiantDarkColor:   $brandColor;
+$fifColoredGradiantLightColor:  lighten($brandColor, 8%);
+
+$fifNeutralGradiantDarkColor:   lighten($headerBgColor, 1%);
+$fifNeutralGradiantLightColor:  lighten($headerBgColor, 5%);
+
+$fifGradientBgPaddingTop:      30px;
+$fifProfilePhotoContainerSize: 106px;
+$fifProfilePhotoSize:          98px;

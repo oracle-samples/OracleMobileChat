@@ -1,0 +1,77 @@
+<!--
+ Copyright (c) 2018, Oracle and/or its affiliates. All rights reserved.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div id="incidentMainPage" role="main" class="oj-applayout-content">
+  <div id="activityListViewWrapper" style="margin-bottom: 48px;">
+    <oj-list-view id='activityListView' class='demo-activity-listview' aria-label='incident activities list' 
+      data='[[dataSource]]' 
+      item.renderer='[[oj.KnockoutTemplateUtils.getRenderer("item_template", true)]]'
+      selection-mode='single' 
+      scroll-policy-options.scroller='[[scrollElem]]'
+      translations.msg-no-data=''>
+    </oj-listview>
+  </div>
+
+  <div class="oj-applayout-fixed-bottom">
+    <footer role="contentinfo" class="oj-hybrid-applayout-footer">
+      <oj-toolbar class='oj-hybrid-applayout-toolbar-stretch oj-toolbar-top-border oj-flex-bar' aria-controls='activityListView'>
+        <div class="oj-flex-bar-start">
+          <oj-button id='bottom' class='oj-button-half-chrome' on-oj-action='[[function(){ return changePhoto($root); }]]' chroming='half' display='icons'> 
+            <span slot='startIcon' class='oj-fwk-icon demo-icon-font-24 demo-camera-icon-24'></span>
+            Camera
+          </oj-button>
+          <input type="file" id="upload-activity-pic" accept="image/*" style="display: none;height: 0;width: 0;">
+        </div>
+
+        <div class="oj-flex-bar-middle">
+          <oj-input-text id='activityTextInput' aria-label='activity message' placeholder='Enter message to post' value='{{textValue}}' style='margin-bottom:0;'></oj-input-text>
+        </div>
+
+        <div class="oj-flex-bar-end">
+          <oj-button id='postBtn' class='oj-button-half-chrome' chroming='half'
+            on-oj-action='[[function() { return postActivity($data.textValue(), $data.imageSrc())}]]' disabled='[[$root.isReadOnlyMode]]'>
+            Post 
+          </oj-button>
+        </div>
+      </oj-toolbar>
+    </footer>
+  </div>
+</div>
+
+<script type="text/html" id="item_template">
+  <li :id="[[$data.id]]">
+    <div class="oj-flex-bar">
+      <div class="oj-flex-bar-start oj-sm-align-items-center demo-flex-zero">
+        <div class="demo-customer-avatar-wrapper oj-flex oj-sm-align-items-center" :style.border="[['1px solid ' + $root.appUtilities.formatAvatarColor(role, userId)]]">
+          <div :id="[[id+'Avatar']]" class="demo-customer-avatar" :style.background="[[$root.appUtilities.formatAvatarColor(role, userId)]]">
+            <oj-bind-text value="[[$root.appUtilities.formatInitials(firstName, lastName)]]"></oj-bind-text>
+          </div>
+        </div>
+      </div>
+      <div class="oj-flex-bar-middle oj-hybrid-padding-start oj-flex oj-sm-flex-direction-column oj-sm-flex-wrap-nowrap">
+        <div class="oj-flex-bar">
+          <div :id="[[id+'Name']]" class="oj-flex-bar-start demo-incidents-list-item-problem">
+            <oj-bind-text value="[[firstName + ' ' + lastName]]"></oj-bind-text>
+          </div>
+          <div :id="[[id+'Time']]" class="oj-flex-bar-end demo-incidents-list-item-status demo-flex-zero">
+            <oj-bind-text value="[[$root.appUtilities.formatTimeStamp(createdOn).time]]" style="white-space: nowrap"></oj-bind-text>
+          </div>
+        </div>
+        <div class="oj-flex-bar">
+          <div :id="[[id+'Comment']]" class="oj-flex-bar-start demo-incidents-list-item-customer demo-dont-break-out">
+            <oj-bind-text value="[[comment]]"></oj-bind-text>
+          </div>
+          <div :id="[[id+'Date']]" class="oj-flex-bar-end demo-incidents-list-item-customer demo-flex-zero">
+            <oj-bind-text value="[[$root.appUtilities.formatTimeStamp(createdOn).date]]" style="white-space: nowrap"></oj-bind-text>
+          </div>
+        </div>
+      </div>
+    </div>
+    <oj-bind-if test="[[$data.picture]]">
+      <div style="text-align:center;padding-left:57px;position: relative;">
+        <img :id="[[$data.id + '-pic']]" :src="[[$data.picture]]" width="100%" alt="activity photo"/>
+      </div>
+    </oj-bind-if>
+  </li>
+</script>

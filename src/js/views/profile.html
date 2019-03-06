@@ -1,0 +1,156 @@
+<!--
+ Copyright (c) 2018, Oracle and/or its affiliates. All rights reserved.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-applayout-page">
+  <div class="oj-applayout-fixed-top">
+    <header role="banner" class="oj-hybrid-applayout-header" data-bind="ojModule: profileHeaderSettings()">
+    </header>
+  </div>
+
+  <div class="oj-applayout-content">
+    <div role="main" class="oj-hybrid-applayout-content">
+
+      <input type="file" id="upload-profile-pic" class="demo-hide-photo-input" aria-label="upload profile photo" accept="image/*" aria-hidden="true">
+
+      <div data-bind="with: $root.userProfileModel">
+
+        <div class="demo-profile-top-section demo-profile-top-section-gradient-blue">
+          <div class="demo-profile-photo-container">
+            <img id="profilePhoto" class="demo-profile-photo" alt="user profile photo" :src="[[photo]]">
+          </div>
+
+          <oj-bind-if test="[[!$parent.editMode()]]">
+            <h2 id="name" class="demo-profile-name">
+              <oj-bind-text value="[[firstName() + ' ' + lastName()]]"></oj-bind-text> 
+            </h2>
+            <div id="title" class="demo-profile-title oj-text-sm">
+              <oj-bind-text value="[[role]]"></oj-bind-text> 
+            </div>
+          </oj-bind-if>
+
+          <oj-bind-if test="[[$parent.editMode()]]">
+            <a id="changePhotoBtn" href="#" on-click="[[$parent.changePhoto]]" class="demo-change-photo oj-text-sm">Change</a>
+          </oj-bind-if>
+        </div>
+
+        <div class="oj-form-layout">
+          <div class="oj-form oj-hybrid-padding">
+            <div class="oj-form-control-group" role="group">
+              <oj-bind-if test="[[$parent.editMode()]]">
+                <div class="oj-flex-bar demo-profile-line-wrapper">
+
+                  <div class="demo-profile-item-content oj-flex-bar-middle">
+                    <oj-label id='firstNameLabel'>First Name</oj-label>
+                    <oj-input-text id='firstNameInput' spellcheck='false' autocorrect='off' aria-labelledby='firstNameLabel' value='{{firstName}}' autofocus></oj-input-text>
+                  </div>
+                </div>
+
+                <div class="oj-flex-bar demo-profile-line-wrapper">
+
+                  <div class="demo-profile-item-content oj-flex-bar-middle">
+                    <oj-label id'lastNameLabel'>Last Name</oj-label>
+                    <oj-input-text id='lastNameInput' spellcheck='false' autocorrect='off' aria-labelledby='lastNameLabel' value='{{lastName}}'></oj-input-text>
+                  </div>
+                </div>
+                <div class="oj-flex-bar demo-profile-line-wrapper">
+
+                  <div class="demo-profile-item-content oj-flex-bar-middle">
+                    <oj-label id='titleLabel'>Title</oj-label>
+                    <oj-input-text id='titleInput' aria-labelledby='titleLabel' value='{{role}}'></oj-input-text>
+                  </div>
+                </div>
+              </oj-bind-if>
+
+              <div class="oj-flex-bar demo-profile-line-wrapper">        
+                <div class="oj-flex-bar-start oj-sm-align-items-center demo-flex-zero">
+                  <div class="demo-profile-item-icon-wrapper demo-mobile-icon-wrapper" :style.display="[[$parent.editMode() ? 'none' : '']]">
+                    <span id="mobileIcon" class="demo-profile-item-icon demo-mobile-icon"></span>
+                  </div>
+                </div>
+                <div class="demo-profile-item-content oj-flex-bar-middle">
+                  <oj-label id='mobileLabel'>Mobile</oj-label>
+                  <oj-bind-if test="[[$parent.editMode()]]">
+                    <oj-input-text id='mobileInput' aria-labelledby='mobileLabel' value='{{mobile}}' read-only='[[!$parent.editMode()]]'></oj-input-text>
+                  </oj-bind-if>
+                  <oj-bind-if test="[[!$parent.editMode()]]">
+                    <div>
+                      <span id="mobileAnchor" href="#" aria-label="mobile phone number">
+                        <oj-bind-text value="[[mobile]]"></oj-bind-text> 
+                      </span>
+                    </div>
+                  </oj-bind-if>
+                </div>
+              </div>
+
+              <div class="oj-flex-bar demo-profile-line-wrapper">
+                <div class="oj-flex-bar-start oj-sm-align-items-center demo-flex-zero">
+                  <div class="demo-profile-item-icon-wrapper demo-office-icon-wrapper" :style.display="[[$parent.editMode() ? 'none' : '']]">
+                    <span id="officeIcon" class="demo-profile-item-icon demo-office-icon"></span>
+                  </div>
+                </div>
+                <div class="demo-profile-item-content oj-flex-bar-middle">
+                  <oj-label id='homeLabel'>Home</oj-label>
+
+                  <oj-bind-if test="[[$parent.editMode()]]">
+                    <oj-input-text id='homeInput' aria-labelledby='homeLabel' value='{{home}}' read-only='[[!$parent.editMode()]]'></oj-input-text>
+                  </oj-bind-if>
+                  <oj-bind-if test="[[!$parent.editMode()]]">
+                    <div>
+                      <span id="officeAnchor" href="#" aria-label="home phone number">
+                        <oj-bind-text value="[[home]]"></oj-bind-text> 
+                      </span>
+                    </div>
+                  </oj-bind-if>
+                </div>
+              </div>
+
+              <div class="oj-flex-bar demo-profile-line-wrapper">
+                <div class="oj-flex-bar-start oj-sm-align-items-center demo-flex-zero">      
+                  <div class="demo-profile-item-icon-wrapper demo-email-icon-wrapper" :style.display="[[$parent.editMode() ? 'none' : '']]">
+                    <span id="emailIcon" class="demo-profile-item-icon demo-email-icon"></span>
+                  </div>
+                </div>
+                <div class="demo-profile-item-content oj-flex-bar-middle">
+                  <oj-label id='emailLabel'>Email</oj-label>
+                  <oj-bind-if test="[[$parent.editMode()]]">
+                    <oj-input-text id='emailInput' aria-labelledby='emailLabel' value='{{email}}' read-only='[[!$parent.editMode()]]'></oj-input-text>
+                  </oj-bind-if>
+                  <oj-bind-if test="[[!$parent.editMode()]]">
+                    <div>
+                      <span id="emailAnchor" href="#" aria-label="email">
+                        <oj-bind-text value="[[email]]"></oj-bind-text> 
+                      </span>
+                    </div>
+                  </oj-bind-if>
+                </div>
+              </div>
+
+              <div class="oj-flex-bar demo-profile-line-wrapper" style="margin-bottom:0">
+                <div class="oj-flex-bar-start oj-sm-align-items-center demo-flex-zero">
+                  <div class="demo-profile-item-icon-wrapper demo-address-icon-wrapper" :style.display="[[$parent.editMode() ? 'none' : '']]">
+                    <span id="addressIcon" class="demo-profile-item-icon demo-address-icon"></span>
+                  </div>
+                </div>
+                <div class="demo-profile-item-content oj-flex-bar-middle">
+                  <oj-label id='locationLabel'>Location</oj-label>
+                  <oj-bind-if test="[[$parent.editMode()]]">
+                    <oj-input-text id='locationInput' spellcheck='false' autocorrect='off' aria-labelledby='locationLabel' value='{{location.formattedAddress}}' read-only='[[!$parent.editMode()]]'></oj-input-text>
+                  </oj-bind-if>
+                  
+                  <oj-bind-if test="[[!$parent.editMode()]]">
+                    <div>
+                      <span id="locationAnchor" aria-label="address">
+                        <oj-bind-text value="[[location.formattedAddress]]"></oj-bind-text>
+                      </span>
+                    </div>
+                  </oj-bind-if>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

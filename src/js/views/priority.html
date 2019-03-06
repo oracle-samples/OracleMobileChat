@@ -1,0 +1,20 @@
+<!--
+ Copyright (c) 2018, Oracle and/or its affiliates. All rights reserved.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div id="incidentMainPage" role="main" class="oj-applayout-content">
+
+<div data-bind="with: $parents[1].incidentData" aria-label="priority">
+  <oj-radioset id='priorityRadioSet' class='oj-radioset-no-chrome oj-radioset-input-end'
+        value='{{priority}}'
+        on-value-changed='[[$parents[2].priorityChange]]'
+        disabled='[[$root.isReadOnlyMode]]'>
+    <oj-option id='high' value='high'>
+      <img src='css/images/spacer.png' class='demo-icon-32 demo-priority-high-icon' aria-hidden="true" slot='startIcon'></img>High</oj-option>   
+    <oj-option id='normal' value='normal'>
+      <img src='css/images/spacer.png' class='demo-icon-32 demo-priority-normal-icon' aria-hidden="true" slot='startIcon'></img>Normal</oj-option>   
+    <oj-option id='low' value='low'>
+      <img src='css/images/spacer.png' class='demo-icon-32 demo-priority-low-icon' aria-hidden="true" slot='startIcon'></img>Low</oj-option>   
+  </oj-radioset>
+</div>
+</div>

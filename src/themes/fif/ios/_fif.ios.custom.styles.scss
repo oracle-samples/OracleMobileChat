@@ -1,0 +1,21 @@
+@import "../common/fif.common.custom.styles";
+
+// ios semi-tranpsparent navbar
+.demo-ios-semi-transparent-bg {
+  background-color: transparentize($neutralColor5, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+// ios form has a left padding and it prevents the label background to stretch full container width
+.demo-popup.demo-filter-popup .demo-filter-form {
+  padding-left: 0;
+}
+
+.demo-signin-appname {
+  padding-left: 0.775rem;
+}
+
+.demo-signin-form-container {
+  padding-left: 1.4rem;
+}

@@ -1,0 +1,21 @@
+<!--
+ Copyright (c) 2018, Oracle and/or its affiliates. All rights reserved.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<p class="oj-hybrid-padding">The following is an optional step. You may attach a photo to this incident</p>
+
+<div style="text-align: center;">
+	<oj-button id='takePhotoBtn' on-oj-action='[[attachPhoto]]'>Attach a Photo</oj-button>
+	<div style="position: relative;">
+		<input type="file" aria-hidden="true" class="demo-hide-photo-input" id="upload-incident-pic" accept="image/*">
+	</div>
+</div>
+<div :style.position="relative;" :style.display="[[$parent.newIncidentModel().picture() ? '' : 'none']]">
+	<img id="incident-photo" alt="incident photo" :src="[[$parent.newIncidentModel().picture()]]" :width="100%">
+	<oj-bind-if test="[[$root.spenSupported()]]">
+     	<oj-button id='editPhotoBtn' class='oj-button-primary' display='icons' chroming='full' on-oj-action='[[function() { return $root.setupPopup($parent.newIncidentModel().picture) }]]' style='position: absolute; right:0; top: 0;'>
+			  <span slot='startIcon' class='demo-icon demo-icon-font-24 demo-edit-icon-24'></span>
+				Edit
+		</oj-button>
+	</oj-bind-if>
+</div>

@@ -1,0 +1,96 @@
+<!--
+ Copyright (c) 2018, Oracle and/or its affiliates. All rights reserved.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div id="incidentMainPage" role="main" class="oj-applayout-content">
+ 
+<div data-bind="with: $parents[1].incidentData">
+  <oj-list-view id='incidentSummaryList' class='' aria-label='incident summary' selection-mode='single' on-selection-changed='[[$parent.optionChange]]'>
+    <ul>
+      <li id="problem">
+        <div class="oj-flex-bar">
+          <div class="oj-flex-bar-start demo-summary-field-name-wrapper">
+            <span class="demo-incident-summary-field-name oj-text-sm">Problem</span>
+          </div>
+          <div class="oj-flex-bar-middle">
+            <span id="incidentProblem" class="demo-incident-summary-content demo-dont-break-out">
+              <oj-bind-text value="[[problem]]"></oj-bind-text>
+            </span>
+          </div>
+        </div>
+      </li>
+
+      <li id="priority" on-click="[[$parents[1].goToPriority]]">
+        <div class="oj-flex-bar">
+          <div class="oj-flex-bar-start demo-summary-field-name-wrapper">
+            <span class="demo-incident-summary-field-name oj-text-sm">Priority</span>
+          </div>
+          <div class="oj-flex-bar-middle oj-sm-align-items-center">
+            <img id="incidentPriorityIcon" src="css/images/spacer.png" :class="[['demo-icon-32 demo-priority-' + priority + '-icon']]">
+            <span id="incidentPriority" class="demo-incident-summary-content oj-hybrid-padding-start">
+              <oj-bind-text value="[[priority.toUpperCase()]]"></oj-bind-text>
+            </span>
+          </div>
+          <div class="oj-flex-bar-end oj-sm-align-items-center">
+            <div role="presentation" aria-hidden="true" style="position: relative; margin: 0;" class="oj-fwk-icon oj-listview-drill-icon"></div>
+          </div>
+        </div>
+      </li>
+
+      <li id="status" on-click="[[$parents[1].goToStatus]]">
+        <div class="oj-flex-bar">
+          <div class="oj-flex-bar-start demo-summary-field-name-wrapper">
+            <span class="demo-incident-summary-field-name oj-text-sm">Status</span>
+          </div>
+          <div class="oj-flex-bar-middle oj-sm-align-items-center">
+            <img id="incidentStatusIcon" src="css/images/spacer.png" :class="[['demo-icon-32 demo-status-' + status + '-icon']]">
+            <span id="incidentStatus" class="demo-incident-summary-content oj-hybrid-padding-start">
+              <oj-bind-text value="[[status.toUpperCase()]]"></oj-bind-text>
+            </span>
+          </div>
+          <div class="oj-flex-bar-end oj-sm-align-items-center">
+            <div role="presentation" aria-hidden="true" style="position: relative; margin: 0;" class="oj-fwk-icon oj-listview-drill-icon"></div>
+          </div>
+        </div>
+      </li>
+      <li id="customer" on-click="[[function() { return $parents[1].goToCustomer(customerId) }]]">
+        <div class="oj-flex-bar">
+          <div class="oj-flex-bar-start demo-summary-field-name-wrapper">
+            <span class="demo-incident-summary-field-name oj-text-sm">Customer</span>
+          </div>
+          <div class="oj-flex-bar-middle">
+            <a href="#" id="customerName" class="demo-incident-summary-content">
+              <oj-bind-text value="[[customer.firstName + ' ' + customer.lastName]]"></oj-bind-text>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li id="phone">
+        <div class="oj-flex-bar">
+          <div class="oj-flex-bar-start demo-summary-field-name-wrapper">
+            <span class="demo-incident-summary-field-name oj-text-sm">Mobile</span>
+          </div>
+          <div class="oj-flex-bar-middle">
+            <a id="customerMobile" class="demo-incident-summary-content" :href="[['tel:'+customer.mobile]]">
+              <oj-bind-text value="[[customer.mobile]]"></oj-bind-text>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li id="address">
+        <div class="oj-flex-bar">
+          <div class="oj-flex-bar-start demo-summary-field-name-wrapper">
+            <span class="demo-incident-summary-field-name oj-text-sm">Address</span>
+          </div>
+          <div class="oj-flex-bar-middle">
+            <a id="incidentLocation" class="demo-incident-summary-content" :href="[['geo:0,0?q=' + location.formattedAddress]]">
+              <oj-bind-text value="[[location.formattedAddress]]"></oj-bind-text>
+            </a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </oj-list-view>
+
+</div>
+</div>

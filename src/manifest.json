@@ -1,0 +1,17 @@
+{
+  "name": "Oracle FixItFast",
+  "short_name": "FIF WebApp",
+  "start_url": "index.html",
+  "icons": [
+    {
+      "src": "img/FIF_launcher2_icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "background_color": "#fff",
+  "theme_color": "#0572ce",
+  "display": "standalone",
+  "orientation": "portrait",
+  "gcm_sender_id": "232155109576"
+}

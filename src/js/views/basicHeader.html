@@ -1,0 +1,23 @@
+<!--
+ Copyright (c) 2018, Oracle and/or its affiliates. All rights reserved.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-flex-bar-start">
+  <oj-bind-if test="[[startBtn.visible]]">
+    <oj-button :id="[[startBtn.id]]"  on-oj-action='[[startBtn.click]]' display='[[startBtn.display]]' chroming='half'>
+      <span slot='startIcon' :class="[[startBtn.icons]]"></span>
+      <span><oj-bind-text value="[[startBtn.label]]"></oj-bind-text></span>
+    </oj-button>
+  </oj-bind-if>
+</div>
+<div class="oj-hybrid-applayout-bar-title">
+  <h1 class="oj-hybrid-applayout-header-title"><oj-bind-text value="[[title]]"></oj-bind-text></h1>
+</div>
+<div class="oj-flex-bar-end">
+  <oj-bind-if test="[[endBtn.visible]]">
+    <oj-button :id="[[endBtn.id]]" on-oj-action='[[endBtn.click]]' display='[[endBtn.display]]' disabled='[[endBtn.disabled]]' chroming='half'>
+      <span slot='startIcon' :class="[[endBtn.icons]]"></span>
+      <span><oj-bind-text value="[[endBtn.label]]"></oj-bind-text></span>
+    </oj-button>
+  </oj-bind-if>
+</div>

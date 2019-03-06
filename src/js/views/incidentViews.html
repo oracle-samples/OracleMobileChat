@@ -1,0 +1,33 @@
+<!--
+ Copyright (c) 2018, Oracle and/or its affiliates. All rights reserved.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-applayout-page">
+  <div class="oj-applayout-fixed-top">
+    <header id="incidentHeader" role="banner" class="demo-ios-semi-transparent-bg" data-bind="ojModule: incidentHeaderSettings, css: router.stateId() !== 'priority' && router.stateId() !== 'status' ? 'oj-hybrid-applayout-header-no-border' : 'oj-hybrid-applayout-header'">
+    </header>
+
+  <oj-bind-if test="[[router.stateId() !== 'priority' && router.stateId() !== 'status']]">
+    <div role="navigation" class="oj-hybrid-applayout-navbar-page demo-ios-semi-transparent-bg tabbarcontainer">
+      <oj-tab-bar id='incidentTabsNav' class='demo-nav-tabs'
+          selection='{{router.stateId}}'
+          edge='top'
+          drill-mode='none'
+          on-selection-changed='[[navBarChange]]'>
+        <ul>
+          <li id="incidentTabSummary">
+            <a href="#">Summary</a>
+          </li>
+          <li id="incidentTabActivity">
+            <a href="#">Activity</a>
+          </li>
+          <li id="incidentTabMap">
+            <a href="#">Map</a>
+          </li>
+        </ul>
+      </oj-tab-bar>
+    </div>
+  </oj-bind-if>
+  </div>
+  <div id="incident" class="oj-hybrid-applayout-page" data-bind="ojModule: moduleConfig"></div>
+</div>

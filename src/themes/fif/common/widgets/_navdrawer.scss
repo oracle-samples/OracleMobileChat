@@ -1,0 +1,67 @@
+/* Nav Drawer Style */
+/* Icons for Nav Drawer Item */
+
+.demo-gear-icon-24:before     { content: "\e609"; }
+.demo-fire-icon-24:before     { content: "\e908"; }
+.demo-person-icon-24:before   { content: "\e909"; }
+.demo-signout-icon-24:before  { content: "\e90b"; }
+.demo-info-icon-24:before     { content: "\e900"; }
+.demo-people-icon-24:before   { content: "\e902"; }
+
+/* Nav Drawer footer logo icon */
+.demo-ifixitfast-icon {
+  width: 200px;
+  height: 18px;
+  margin: auto;
+  background: url($fifCommonImageDir + 'appLayout/navDrawer/ifixitfast.svg') no-repeat center bottom;
+  background-size: auto 18px;
+}
+
+.demo-navdrawer-content-wrapper {
+  height: 100vh;
+}
+
+.demo-navdrawer-content-wrapper::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: url($fifCommonImageDir + 'drawer_background@2x.png') no-repeat top left;
+  background-size: cover;
+  z-index: -1;
+}
+
+.demo-navdrawer-content {
+  padding: 0;
+  flex: 1 0 auto;
+  webkit-flex: 1 0 auto;
+}
+
+.demo-navdrawer {
+  li {
+    height: 3rem;
+    opacity: 0.7;
+  }
+
+  .demo-navdrawer-footer {
+    background-color: transparent;
+    border: none;
+  }
+
+  .demo-navdrawer-profile-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+  }
+}
+
+.demo-incidents-badge {
+  width: 24px;
+  height: 24px;
+  background: red;
+  border-radius: 50%;
+  display: inline-block;
+  line-height: 24px;
+  text-align: center;
+  margin-left: 1rem;
+}

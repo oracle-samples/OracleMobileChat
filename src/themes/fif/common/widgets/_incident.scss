@@ -1,0 +1,90 @@
+/* ----------------------------------------------------- */
+/* incident page style */
+
+/* incident summary tab */
+.demo-incident-summary-field-name {
+  color: $fifSecondaryLabelColor;
+  line-height: 2.5rem;
+}
+
+.demo-summary-field-name-wrapper { min-width: 5rem; }
+
+.demo-incident-summary-content {
+  line-height: 2.5rem;
+}
+
+/* incident activity tab */
+.demo-activity-listview li.oj-listview-item { max-height: none; }
+
+.demo-map-panel {
+  display: none;
+  position: absolute;
+  z-index: 99;
+  background-color: $neutralColor1;
+  opacity: 0.9;
+  width: 100%;
+
+  .demo-name-duration-label {
+    font-size: 1.125rem;
+  }
+
+  .demo-secondary-label {
+    color: $fifSecondaryLabelColor;
+  }
+
+  .demo-map-phone-icon {
+    background: url($fifCommonImageDir + '32px_phone_blue.svg') no-repeat center center;
+    background-size: 16px 16px;
+    height: 16px; width: 16px;
+  }
+}
+
+// the app shows how to use both oracle mapviewer and google maps
+// the following rules are for google maps customizations
+
+/* Google Maps marker start */
+// .demo-incident-marker {
+//   background-color: $neutralColor1;
+//   height: 52px;
+//   min-width: 225px;
+// }
+
+// .demo-incident-marker-duration {
+//   background-color: #3366cc;
+//   color: $neutralColor1;
+//   line-height: 52px;
+// }
+
+// .demo-incident-marker-customer {
+//   line-height: 52px;
+//   font-size: 1.125rem;
+// }
+
+// .gm-style-iw {
+//   width: auto !important;
+//   top: 18px !important;
+//   height: 52px !important;
+//   background-color: $neutralColor1;
+//   border: 1px solid  $neutralColor8;
+//   border-radius: 8px;
+// }
+/* Google Maps marker end */
+
+/* status and priority selection page */
+.demo-incident-radioset-item {
+  line-height: 3.5rem;
+  height: 3.5rem;
+}
+
+/* ----------------------------------------------------- */
+/* create incident page style */
+.demo-create-incident-page {
+  overflow: auto;
+}
+
+// todo: why do you need this? If I remove it the bg color is still white
+
+// mickey: if i remove it you can see the content scrolls behind it
+.demo-train-container {
+  background-color: $neutralColor1;
+}

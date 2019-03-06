@@ -1,0 +1,22 @@
+// Copyright (c) 2014, 2018, Oracle and/or its affiliates. The Universal Permissive License (UPL), Version 1.0
+@import "../../../../node_modules/@oracle/oraclejet/dist/scss/utilities/oj.utilities.urls";
+@import "../../../../node_modules/@oracle/oraclejet/dist/scss/utilities/oj.utilities.math";
+
+$themeName:           fif !default;
+
+// PATHS
+//----------------------------------
+// these paths should be relative to the generated css file
+
+// path to images
+$imageDir: "../../alta/5.1.0/windows/images/" !default;
+
+// path to (icon) fonts
+$fontDir:  "../../alta/5.1.0/windows/fonts/" !default;
+
+// path to common images (images shared across themes)
+$commonImageDir:  "../../alta/5.1.0/common/images/" !default;
+
+
+@import "../common/fif.common.settings";
+

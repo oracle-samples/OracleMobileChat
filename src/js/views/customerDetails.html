@@ -1,0 +1,191 @@
+<!--
+ Copyright (c) 2018, Oracle and/or its affiliates. All rights reserved.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-applayout-page">
+  <div class="oj-applayout-fixed-top">
+    <header id="custDetailsHeader" role="banner" class="oj-flex-bar oj-hybrid-applayout-header oj-sm-align-items-center" data-bind="ojModule: custDetailsHeaderSettings">
+    </header>
+  </div>
+
+  <div class="oj-applayout-content">
+    <div role="main" class="oj-hybrid-applayout-content demo-solid-bg">
+
+      <input type="file" id="upload-customer-pic" class="demo-hide-photo-input" aria-label="upload customer profile photo" accept="image/*" aria-hidden="true">
+
+      <div data-bind="with: customerModel">
+        <div class="demo-profile-top-section demo-profile-top-section-gradient-grey">
+          <oj-bind-if test="[[!$parent.imgSrc()]]">
+            <div class="demo-customer-details-avatar-wrapper" :style.border="[['1px solid ' + $root.appUtilities.formatAvatarColor('Customer', id())]]">
+              <div id="customerAvatar" class="demo-customer-details-avatar" :style.background="[[$root.appUtilities.formatAvatarColor('Customer', id())]]">
+                <oj-bind-text value="[[$root.appUtilities.formatInitials(firstName(), lastName())]]"></oj-bind-text>
+              </div>
+            </div>
+          </oj-bind-if>
+          <oj-bind-if test="[[$parent.imgSrc()]]">
+            <div class="demo-profile-photo-container">
+              <img id="customer-photo" class="demo-profile-photo" alt="profile photo" :src="[[$parent.imgSrc]]">
+            </div>
+          </oj-bind-if>
+
+          <oj-bind-if test="[[!$parent.editMode()]]">
+            <h2 id="customerName" class="demo-customer-name">
+              <oj-bind-text value="[[firstName() + ' ' + lastName()]]"></oj-bind-text>
+            </h2>
+          </oj-bind-if>
+
+          <oj-bind-if test="[[$parent.editMode()]]">
+            <a id="changePhotoBtn" href="#" on-click="[[$parent.changePhoto]]" class="oj-text-sm">Change</a>
+          </oj-bind-if>
+        </div>
+
+        <div class="oj-form-layout">
+          <div class="oj-form oj-hybrid-padding">
+            <div class="oj-form-control-group" role="group">
+              <oj-bind-if test="[[$parent.editMode()]]">
+                <div class="oj-flex-bar demo-profile-line-wrapper">
+
+                  <div class="demo-profile-item-content oj-flex-bar-middle">
+                    <oj-label id='customerFirstNameLabel'>First Name</oj-label>
+                    <oj-input-text id='customerFirstNameInput' aria-labelledby='customerFirstNameLabel' value='{{firstName}}' spellcheck='false' autocorrect='off' autocapitalize=words autofocus></oj-input-text>
+                  </div>
+                </div>
+
+                <div class="oj-flex-bar demo-profile-line-wrapper">
+
+                  <div class="demo-profile-item-content oj-flex-bar-middle">
+                    <oj-label id='customerLastNameLabel'>Last Name</oj-label>
+                    <oj-input-text id='customerLastNameInput' aria-labelledby='customerLastNameLabel' value='{{lastName}}' spellcheck='false' autocorrect='off' autocapitalize=words></oj-input-text>
+                  </div>
+                </div>
+              </oj-bind-if>
+
+              <oj-bind-if test="[[$data.mobile || $parent.editMode()]]">
+                <div class="oj-flex-bar demo-profile-line-wrapper">
+                  <div class="oj-flex-bar-start oj-sm-align-items-center demo-flex-zero">
+                    <div class="demo-profile-item-icon-wrapper demo-mobile-icon-wrapper" :style.display="[[$parent.editMode() ? 'none' : '']]">
+                      <span id="mobileIcon" class="demo-profile-item-icon demo-mobile-icon"></span>
+                    </div>
+                  </div>
+                  <div class="demo-profile-item-content oj-flex-bar-middle">
+                    <oj-label id='customerMobileLabel'>Mobile</oj-label>
+                    <oj-bind-if test="[[$parent.editMode()]]">
+                      <oj-input-text id='customerMobileInput' aria-labelledby='customerMobileLabel' value='{{mobile}}'></oj-input-text>
+                    </oj-bind-if>
+                    <oj-bind-if test="[[!$parent.editMode()]]">
+                      <div>
+                        <a id="custMobileAnchor" href="#" :href="[['tel:' + mobile()]]" aria-label="mobile phone number"><oj-bind-text value="[[mobile]]"></oj-bind-text></a>
+                      </div>
+                    </oj-bind-if>
+                  </div>
+                </div>
+              </oj-bind-if>
+
+              <oj-bind-if test="[[$data.home || $parent.editMode()]]">
+                <div class="oj-flex-bar demo-profile-line-wrapper">
+                  <div class="oj-flex-bar-start oj-sm-align-items-center demo-flex-zero">
+                    <div class="demo-profile-item-icon-wrapper demo-office-icon-wrapper" :style.display="[[$parent.editMode() ? 'none' : '']]">
+                      <span id="officeIcon" class="demo-profile-item-icon demo-office-icon"></span>
+                    </div>
+                  </div>
+
+                  <div class="demo-profile-item-content oj-flex-bar-middle">
+                    <oj-label id='customerHomeLabel'>Home</oj-label>
+                    <oj-bind-if test="[[$parent.editMode()]]">
+                      <oj-input-text id='customerHomeInput' aria-labelledby='customerHomeLabel' value='{{home}}'></oj-input-text>
+                    </oj-bind-if>
+                    <oj-bind-if test="[[!$parent.editMode()]]">
+                      <div>
+                        <a id="custHomeAnchor" href="#" :href="[['tel:' + home()]]" aria-label="home phone number"><oj-bind-text value="[[home]]"></oj-bind-text></a>
+                      </div>
+                    </oj-bind-if>
+                  </div>
+                </div>
+              </oj-bind-if>
+
+              <oj-bind-if test="[[$data.email || $parent.editMode()]]">
+                <div class="oj-flex-bar demo-profile-line-wrapper">
+                  <div class="oj-flex-bar-start oj-sm-align-items-center demo-flex-zero">
+                    <div class="demo-profile-item-icon-wrapper demo-email-icon-wrapper" :style.display="[[$parent.editMode() ? 'none' : '']]">
+                      <span id="emailIcon" class="demo-profile-item-icon demo-email-icon"></span>
+                    </div>
+                  </div>
+
+                  <div class="demo-profile-item-content oj-flex-bar-middle">
+                    <oj-label id='customerEmailLabel'>Email</oj-label>
+                    <oj-bind-if test="[[$parent.editMode()]]">
+                      <oj-input-text id='customerEmailInput' aria-labelledby='customerEmailLabel' value='{{email}}'></oj-input-text>
+                    </oj-bind-if>
+                    <oj-bind-if test="[[!$parent.editMode()]]">
+                      <div>
+                        <a id="custEmailAnchor" href="#" :href="[['mailto:' + email()]]" aria-label="email"><oj-bind-text value="[[email]]"></oj-bind-text></a>
+                      </div>
+                    </oj-bind-if>
+                  </div>
+                </div>
+              </oj-bind-if>
+
+              <oj-bind-if test="[[$data.address.length > 0 || $parent.editMode()]]">
+                <div class="oj-flex-bar demo-profile-line-wrapper">
+                  <div class="oj-flex-bar-start oj-sm-align-items-center demo-flex-zero">
+                    <div class="demo-profile-item-icon-wrapper demo-address-icon-wrapper" :style.display="[[$parent.editMode() ? 'none' : '']]">
+                      <span id="addressIcon" class="demo-profile-item-icon demo-address-icon"></span>
+                    </div>
+                  </div>
+
+                  <div class="demo-profile-item-content oj-flex-bar-middle">
+                    <oj-bind-if test="[[$parent.editMode()]]">
+                      <div class="demo-profile-line-wrapper">
+                          <oj-label id='customerStreet1Label'>Street Line 1</oj-label>
+                          <oj-input-text id='customerStreet1Input' spellcheck='false' autocorrect='off' aria-labelledby='customerStreet1Label' value='{{address.street1}}'></oj-input-text>
+                      </div>
+
+                      <div class="demo-profile-line-wrapper">
+                          <oj-label id='customerStreet2Label'>Street Line 2</oj-label>
+                          <oj-input-text id='customerStreet2Input' spellcheck='false' autocorrect='off' aria-labelledby='customerStreet2Label' value='{{address.street2}}'></oj-input-text>
+                      </div>
+
+                      <div class="demo-profile-line-wrapper">
+                          <oj-label id='customerCityLabel'>City</oj-label>
+                          <oj-input-text id='customerCityInput' spellcheck='false' autocorrect='off' aria-labelledby='customerCityLabel' value='{{address.city}}'></oj-input-text>
+                      </div>
+
+                      <div class="demo-profile-line-wrapper">
+                          <oj-label id='customerStateLabel'>State</oj-label>
+                          <oj-input-text id='customerStateInput' spellcheck='false' autocorrect='off' aria-labelledby='customerStateLabel' value='{{address.state}}'></oj-input-text>
+                      </div>
+
+                      <div class="demo-profile-line-wrapper">
+                          <oj-label id='customerZipLabel'>Zipcode</oj-label>
+                          <oj-input-text id='customerZipInput' aria-labelledby='customerZipLabel' value='{{address.zip}}'></oj-input-text>
+                      </div>
+
+                      <div class="demo-profile-line-wrapper">
+                          <oj-label id='customerCountryLabel'>Country</oj-label>
+                          <oj-input-text id='customerCountryInput' aria-labelledby='customerCountryLabel' value='{{address.country}}'></oj-input-text>
+                      </div>
+                    </oj-bind-if>
+                    <oj-bind-if test="[[!$parent.editMode()]]">
+                      <oj-label id="customerAddressLabel">Address</oj-label>
+                      <div>
+                        <a id="custAddressAnchor" target="_blank" :href="[['geo:' + address.latitude() + ', ' + address.longitude()]]" aria-label="address"><oj-bind-text value="[[address.formattedAddress]]"></oj-bind-text></a>
+                      </div>
+                    </oj-bind-if>
+                  </div>
+                </div> 
+              </oj-bind-if>     
+
+            </div>
+            
+          </div>
+        </div>
+        <oj-bind-if test="[[$parent.contactsPluginSupported() && !$parent.editMode()]]">
+          <div style="text-align: center;padding-bottom: 10px;">
+            <oj-button id='addToContactsBtn' on-oj-action='[[$parent.addToContacts]]'>Add to Contacts</oj-button>
+          </div>
+        </oj-bind-if>
+      </div>
+
+    </div>
+  </div>
+</div>

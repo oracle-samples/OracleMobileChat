@@ -1,0 +1,341 @@
+/* ------------------------------------------------------ */
+/*
+ Copyright (c) 2018, Oracle and/or its affiliates. All rights reserved.
+ The Universal Permissive License (UPL), Version 1.0
+ */
+/* chat */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.omQuestion {
+  text-align: center;
+}
+
+.demo-chat-badge-lg {
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+  display: inline-block;
+  line-height: 20px;
+  text-align: center;
+  margin-left: 0.5rem;
+}
+
+.demo-chat-badge-sm {
+  width: 16px;
+  height: 16px;
+  background: red;
+  border-radius: 50%;
+  display: inline-block;
+  line-height: 16px;
+  text-align: center;
+}
+
+.demo-unread-chats {
+  margin: 0px;
+  color: #ffffff;
+}
+
+.demo-fab-badge {
+  position: fixed;
+  right: 20px;
+  bottom: 60px;
+  z-index: 1;
+  border: none;
+  border-radius: 50%;
+}
+
+#chatDetails {
+  background-color: #e7ebef;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+#omcWaiting {
+  width: 80%; 
+  margin: auto; 
+  top:100px;
+  bottom: 100px;
+  background-color:#e7ebef;
+}
+#transcriptContainer {
+}
+#innerTranscriptContainer {
+  overflow: scroll;
+}
+#omcTranscript {
+  display: block;
+  background-color: transparent;
+  width: 100%;
+  position: relative;
+  overflow: auto;
+}
+#omcTranscript div {
+  display: block;
+  background-color: transparent;
+  width: 80%;
+  position: relative;
+  padding: 5px 5px 5px 5px;
+}
+
+#omcTranscript .System .omcMessageText{
+  background-color: darkgrey;
+  display: inline-block;
+  font-weight: normal;
+  right: 20px;
+  padding: 5px 5px 5px 10px;
+  width: 90%;
+  position: relative;
+  white-space: pre-wrap;
+  float: right;
+  overflow-wrap: break-word;
+}
+
+
+#omcTranscript .agent {
+  display: inline-block;
+  width: 100;
+}
+
+#omcTranscript .agent .omcMessageText{
+  background-color: #f6f6ee;
+  display: inline-block;
+  border-color: black;
+  border: 1px solid #666;
+  border-radius: 20px;
+  font-weight: normal;
+  right: 20px;
+  padding: 5px 5px 5px 10px;
+  width: 90%;
+  position: relative;
+  white-space: pre-wrap;
+  float: right;
+  overflow-wrap: break-word;
+  
+}
+
+#omcTranscript .agent .omcMessageSender {
+  display: inline-block;
+  font-weight: lighter;
+  font-size: smaller;
+  right: 20px;
+  width: 40%;
+  margin-left:20px;
+  margin-bottom: 0px;
+}
+
+#omcTranscript .agent .omcMessageTime {
+  display: inline-block;
+  font-weight: lighter;
+  font-size: smaller;
+  text-align: right;
+  position: relative;
+  width: 48%;
+  margin: 0;
+}
+
+#omcTranscript .enduser {
+  display: block;
+  float: right;
+  position: relative;
+  width: 100;
+}
+
+#omcTranscript .enduser .omcMessageSender {
+  display: block;
+  left: 35px;
+  font-weight: lighter;
+  font-size: smaller;
+  float:left;
+  padding-left: 20px;
+  width: 40%;
+  margin-bottom: 0px;
+}
+#omcTranscript .enduser .omcMessageTime {
+
+  display: inline-block;
+  font-weight: lighter;
+  font-size: smaller;
+  text-align: right;
+  position: relative;
+  float: right;
+  width:30%;
+  right:40px;
+  margin-bottom: 0px;
+}
+#omcTranscript .enduser .omcMessageText {
+  background-color: #3399ff;
+  color: white;
+  display: inline-block;
+  border-color: black;
+  border: 1px solid #666;
+  border-radius: 20px;
+  font-weight: normal;
+  right: 20px;
+  padding: 5px 5px 5px 2px;
+  width: 90%;
+  position: relative;
+  white-space: pre-wrap;
+  float: right;
+  overflow-wrap: break-word;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#topPanel {
+  background-color: #F2F2F3;
+}
+#bottomPanel {
+  background-color: #3B3D3F;
+  margin-bottom: 10 px;
+}
+
+#bottomPanel footer {
+  background-color: #3B3D3F;
+  display: flex;
+}
+#bottomPanel footer div.oj-hybrid-applayout-navbar-app {
+  min-width: 100%;
+}
+
+#bottomPanel footer #newMessageContainer {
+  display: inline-block;
+  min-width: 80%;
+  margin-top: 8px;
+  margin-left: 10px;
+}
+
+#bottomPanel footer #newMessageContainer #newMessage {
+  background-color: white;
+  margin-left: 10 px;
+}
+
+#bottomPanel footer #newMessageContainer #newMessage input{
+  background-color: white;
+}
+
+#bottomPanel footer #sendMessageBtn {
+  text-align: center;
+  align-items: center;
+  display: inline-flex;
+  min-width: 8%;
+  color: white;
+  margin-left: 10px;
+}
+
+
+#bottomPanel footer #sendMessageBtn oj-button button div span {
+  color: white;
+  font-weight: bold;
+}
+#chat {
+  background-color: #E7EBEF;
+}
+.btnSend {
+  transform: rotate(45deg);
+}
+#questionDiv {
+  background-color:#ECECEC;
+}
+#question {
+  background-color: white;
+}
+#setQuestionBtn {
+  float: right;
+}
+
+#omQuestion {
+  width: 100%;
+}
+#questionDiv {
+  width: 85%;
+  float: left;
+  padding-left: 10px;
+}
+#setQuestionBtn {
+  width: 12%;
+  float: left;
+  padding-top: 20px;
+
+}
+.question {
+  padding: 10px;
+}
+.question span {
+  border: 1px solid darkgrey;
+    border-radius: 5px; 
+    background-color: #4c4f52;
+    color: white; 
+    display: inline-block;
+    width: 90%;
+    padding: 10px;
+    font-style: italic;
+ }
+.System {
+  padding: 10px;
+    font-style: italic;
+}
+.System span {
+  border: 1px solid darkgrey;
+    border-radius: 5px; 
+    background-color: #4c4f52;
+    color: white; 
+    display: inline-block;
+    width: 90%;
+    padding: 10px;
+}
+
+.decorated {
+  margin-top: 20px;
+  line-height: 0.5;
+  text-align: center;
+  font-weight: lighter;
+  display:inline-block;
+  min-width: 80%;
+}
+.decorated span {
+  display: inline-block;
+  position: relative;  
+}
+.decorated span:before,
+.decorated span:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+  top: 0;
+  width: 600px;
+}
+.decorated span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+.decorated span:after {
+  left: 100%;
+  margin-left: 15px;
+}
+
+.queuePos {
+  display: inline-block;
+}
+
+#loading {
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+}
+
+oj-input-text, oj-input-password {
+  border: 1px solid gray;
+}
+
+.settings {
+  overflow-y:scroll;
+  -webkit-overflow-scrolling: touch;
+}

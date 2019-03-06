@@ -1,0 +1,65 @@
+/* ----------------------------------------------------- */
+
+/* about page social links */
+.demo-about-social-item {
+  text-align: center;
+  margin-top: 1rem;
+  min-width: 70px;
+}
+
+/* Ensure the buttons displayed over the blurred photo have sufficient contrast */
+.demo-transparent-header .oj-button.oj-default.oj-button-half-chrome.demo-hamburger-button .oj-button-icon,
+.demo-transparent-header .oj-button.oj-default.oj-button-half-chrome.demo-back-button .oj-button-icon,
+.demo-transparent-header .oj-button.oj-default.oj-button-half-chrome.demo-social-button .oj-button-icon {
+  color: white;
+}
+
+.demo-rss-icon,
+.demo-twitter-icon,
+.demo-chat-icon,
+.demo-loading-icon,
+.demo-responding-icon,
+.demo-youtube-icon,
+.demo-gplus-icon {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.demo-loading-icon{
+  height: 180px;
+  width: 180px;
+}
+
+.demo-rss-icon        { background: $fifRssIconBgColor url($fifCommonImageDir + "rss.svg") no-repeat scroll center center; background-size: 52px;}
+.demo-twitter-icon    { background: $fifTwitterIconBgColor url($fifCommonImageDir + "twitter.svg") no-repeat scroll center center; background-size: 52px;}
+.demo-chat-icon       { background: $fifChatIconBgColor url($fifCommonImageDir + "chat_icon@2x.png") no-repeat scroll center center; background-size: 52px;}
+.demo-loading-icon    { background: $fifLoadingIconBgColor url($fifCommonImageDir + "loading.gif") no-repeat scroll center center; background-size: 52px;}
+.demo-responding-icon { background: $fifRespondingIconBgColor url($fifCommonImageDir + "throbber.gif") no-repeat scroll center center; background-size: 52px;}
+.demo-youtube-icon    { background: $fifYoutubeIconBgColor url($fifCommonImageDir + "youtube.svg") no-repeat scroll center center; background-size: 52px;}
+.demo-gplus-icon      { background: $fifGplusIconBgColor url($fifCommonImageDir + "facebook.svg") no-repeat scroll center center; background-size: 52px;}
+
+/* ---------------------------------------------------- */
+/* about page content style */
+.demo-about-top-bg {
+  padding-top: $appLayoutHybridHeaderMinHeight; // padding should be the same as the height inherited by demo-transparent-top
+  background: url($fifCommonImageDir + 'about_us_background.png') no-repeat;
+  background-size: cover;
+  min-height: 227px;
+  text-align: center;
+
+  h2 {
+    color: $fifAboutPageHeaderColor;
+  }
+}
+
+.demo-about-item {
+  color: $fifPrimaryLabelColor;
+}
+
+.demo-about-list-header {
+  text-transform:uppercase;
+  line-height: 1.5rem;
+  background: $neutralColor5;
+  color: $secondaryTextColor;
+}

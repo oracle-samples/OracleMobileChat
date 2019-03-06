@@ -1,0 +1,97 @@
+/* ----------------------------------------------------- */
+
+
+$topHeight: $fifGradientBgPaddingTop + $fifProfilePhotoContainerSize / 2;
+
+/* profile page style */
+/* profile top section background */
+.demo-profile-top-section-gradient-blue {
+  background: linear-gradient(to bottom, $fifColoredGradiantDarkColor $topHeight, $fifColoredGradiantLightColor $topHeight);
+}
+
+.demo-profile-top-section-gradient-grey {
+  background: linear-gradient(to bottom, $fifNeutralGradiantDarkColor $topHeight, $fifNeutralGradiantLightColor $topHeight);
+}
+
+.demo-profile-photo {
+  width: $fifProfilePhotoSize;
+  height: $fifProfilePhotoSize;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.demo-hide-photo-input {
+  display: none;
+}
+
+.demo-profile-photo-container {
+  padding: ($fifProfilePhotoContainerSize - $fifProfilePhotoSize) / 2;
+  width: $fifProfilePhotoContainerSize;
+  height: $fifProfilePhotoContainerSize;
+  margin: auto;
+  background-color: $neutralColor1;
+  border-radius: 50%;
+}
+
+.demo-profile-top-section {
+  padding-top: $fifGradientBgPaddingTop;
+  padding-bottom: 30px;
+  min-height: 225px;
+  text-align: center;
+}
+
+h2.demo-profile-name {
+  color: $contrastTextColor;
+}
+
+.demo-profile-title {
+  color: $contrastTextColor;
+}
+
+a.demo-change-photo {
+  color: $contrastTextColor;
+  background-color: transparent;
+
+  &:active {
+    background-color: transparent;
+  }
+}
+
+.demo-profile-item-content {
+  display: inline-block;
+  width: 100%;
+
+  label {
+    color: $fifSecondaryLabelColor;
+  }
+}
+
+.demo-profile-line-wrapper {
+  padding-bottom: 1rem;
+}
+
+.demo-profile-item-icon {
+  display: block;
+  height: 100%;
+}
+
+.demo-profile-item-icon-wrapper {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  margin-right: 0.625rem;
+}
+
+// todo: in general we try and avoid background images because of high contrast mode. If the images are just decorative that's fine, but if you need to see an image to use the page in high contrast mode then you should use the mixin described here:
+// jetCookbook.html?component=imagecss&demo=imageHiContrast
+
+// mickey: it's only decorative.
+.demo-mobile-icon { background: url($fifCommonImageDir + '32px_phone.svg') no-repeat center center; background-size: 16px 16px; }
+.demo-office-icon { background: url($fifCommonImageDir + '32px_office.svg') no-repeat center center; background-size: 16px 16px; }
+.demo-email-icon { background: url($fifCommonImageDir + '32px_mail.svg') no-repeat center center; background-size: 16px 16px; }
+.demo-address-icon { background: url($fifCommonImageDir + '32px_location.svg') no-repeat center center; background-size: 16px 16px; }
+
+.demo-mobile-icon-wrapper { background: $fifMobileIconBgColor; }
+.demo-office-icon-wrapper { background: $fifOfficeIconBgColor; }
+.demo-email-icon-wrapper { background: $fifEmailIconBgColor; }
+.demo-address-icon-wrapper { background: $fifAddressIconBgColor; }

@@ -1,0 +1,36 @@
+{
+  "id": "inc-111",
+  "problem": "Carpet not installed properly",
+  "description": "New carpet installed last week is coming apart at the seams",
+  "category": "general",
+  "picture": null,
+  "status": "accepted",
+  "priority": "normal",
+  "createdOn": "2016-06-11T09:00:41+00:00",
+  "lastUpdatedOn": "2016-07-01T09:00:41+00:00",
+  "customerId": "cus-113",
+  "_technicianUsername": "hcr",
+  "locationId": "loc-13",
+  "read": true,
+  "revNum": 1,
+  "activitiesRevNum": 1,
+  "customer": {
+    "id": "cus-113",
+    "username": "skapoor",
+    "firstName": "Srini",
+    "lastName": "Kapoor",
+    "locationId": "loc-13",
+    "mobile": "+16505067000",
+    "home": "+15105552121",
+    "email": "skapoor@somewhere.com",
+    "role": "Customer",
+    "revNum": 1
+  },
+  "location": {
+    "formattedAddress": "4226 Piedmont Ave, Oakland, CA 94611 USA",
+    "latitude": "37.827911",
+    "longitude": "-122.249982",
+    "id": "loc-13",
+    "revNum": 1
+  }
+}

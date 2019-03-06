@@ -1,0 +1,36 @@
+<!--
+ Copyright (c) 2018, Oracle and/or its affiliates. All rights reserved.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-form-layout" data-bind="with: $parent.newIncidentModel">
+  <div class="oj-form">
+    <div class="oj-flex">
+      <div class="oj-flex-item">
+        <oj-label show-required id='problemLabel' class='profileLabel'>PROBLEM</oj-label>
+        <oj-input-text id='problem-input' aria-labelledby='problemLabel' placeholder='Describe the problem.' value='{{problem}}' required='true' autofocus></oj-input-text>
+      </div>
+    </div>
+    <div class="oj-flex">
+      <div class="oj-flex-item">
+        <oj-label show-required id='categoryLabel'>CATEGORY</oj-label>
+        <oj-radioset id='categoryRadioSet' aria-labelledby='categoryLabel' class='oj-radioset-no-chrome oj-radioset-input-end' value='{{category}}' required='true'>
+          <oj-option id='general' value='general'>General Home</oj-option>  
+          <oj-option id='appliance' value='appliance'>Appliance</oj-option>  
+          <oj-option id='electrical' value='electrical'>Electrical</oj-option>  
+          <oj-option id='heatingcooling' value='heatingcooling'>Heating / Cooling</oj-option>  
+          <oj-option id='plumbing' value='plumbing'>Plumbing</oj-option>  
+        </oj-radioset>
+      </div>
+    </div>
+    <div class="oj-flex">
+      <div class="oj-flex-item">
+        <oj-label show-required id='priorityLabel'>PRIORITY</oj-label>
+        <oj-radioset id='priorityRadioSet' aria-labelledby='priorityLabel' class='oj-radioset-no-chrome oj-radioset-input-end' value='{{priority}}' required='true'>
+          <oj-option id='high' value='high'>High</oj-option>  
+          <oj-option id='normal' value='normal'>Normal</oj-option>  
+          <oj-option id='low' value='low'>Low</oj-option> 
+        </oj-radioset>
+      </div>
+    </div>
+  </div>
+</div>

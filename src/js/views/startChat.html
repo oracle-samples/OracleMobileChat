@@ -1,0 +1,113 @@
+<!--
+ Copyright (c) 2018, Oracle and/or its affiliates. All rights reserved.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+  <div id="chatDetails" class="oj-hybrid-applayout-page">
+    <div id='topPanel' class='oj-applayout-fixed-top'>
+      <header role="banner" class="oj-hybrid-applayout-header">
+        <div class="oj-flex-bar-start">
+          <oj-button display="icons" chroming="half" on-oj-action="[[$root.onChatBackClicked]]"  >
+            <span slot="startIcon" class="oj-fwk-icon-caret-s oj-fwk-icon"></span>
+            <span>Back</span>
+          </oj-button>
+        </div>
+        <div class="oj-hybrid-applayout-bar-title">
+          <h1 class="oj-hybrid-applayout-header-title">
+            Chat
+          </h1>
+          <h4 class="demo-unread-chats">
+            <span class="demo-chat-badge-lg" :style.display="[[ $root.newMessages() > 0 ? '' : 'none']]">
+              <span data-bind="text: $root.newMessages"></span>
+            </span>
+          </h4>
+        </div>
+        <div class="oj-flex-bar-end">
+          <oj-button display="icons" chroming="half" on-oj-action="[[$root.onTerminateClicked]]">
+            <span slot="startIcon" class="oj-fwk-icon-cross02 oj-fwk-icon"></span>
+            <span>Terminate</span>
+          </oj-button>
+        </div>
+      </header>
+    </div>
+    <div id="transcriptContainer" class="oj-applayout-content oj-clickthrough-disabled" on-scroll-position-changed="[[$root.onTranscriptScrolled]]">
+      <div id="innerTranscriptContainer" class="omcTranscript">
+        <div id='omcTranscript' role="main" data-bind="foreach: $root.transcriptListMerged">
+          <oj-bind-if test="[[messageType == 'EDGE']]">
+            <p class="decorated"><span><!--ko text: message + ' '+ ('0' + (new Date(new Date(time).toString())).getHours()).slice(-2) + ':' + ('0' + (new Date(new Date(time).toString())).getMinutes()).slice(-2) --><!--/ko--> </span></p>
+          </oj-bind-if>
+
+          <oj-bind-if test="[[messageType == 'QUESTION']]">
+            <p class='question'><span><!--ko text: message --><!--/ko--> </span></p>
+          </oj-bind-if>
+
+          <oj-bind-if test="[[messageType == 'MESSAGE']]">
+            <div data-bind="attr: {class: senderType}">
+              <p  class="omcMessageSender sender"  data-bind="attr: { value: user, text: user, innerText: user}"><!--ko text: user--><!--/ko--></p>
+              <p  class="omcMessageTime time " data-bind="attr: { text: time}"><!--ko text: ('0' + (new Date(new Date(time).toString())).getHours()).slice(-2) + ':' + ('0' + (new Date(new Date(time).toString())).getMinutes()).slice(-2) --><!--/ko--></p>
+              <p  class="omcMessageText message oj-full-width" data-bind="attr: { value: message, text: message, innerText: message}"><!--ko text: message--><!--/ko--></p>
+            </div>
+          </oj-bind-if>
+
+        </div>
+
+      <div data-bind="visible: !$root.questionSet()">
+        <div id='omQuestion' class='omQuestion'>
+          <div id="questionDiv">
+            <oj-label id='questionLabel' for='question'>Submit a question to begin chatting</oj-label>
+            <oj-input-text id='question' on-raw-value-changed="[[$root.initiateQuestion]]" value="{{$root.question}}"></oj-input-text>
+          </div>
+          <div id="setQuestionBtn">
+            <oj-button display="icons" chroming="half" on-oj-action="[[$root.onSetQuestionClicked]]">
+              <span slot="startIcon" class="btnSend demo-location-icon-24 demo-icon-font-24"></span>
+              <span>Submit</span>
+            </oj-button>
+          </div>
+        </div>
+      </div>
+
+      <div data-bind="visible: $root.questionSet() && !$root.showChatTranscript()">
+        <div id='omcWaiting' style="width: 80%; margin: auto; bottom: 100px; text-align: center;">
+          <oj-label >Please wait while your request is assigned to an Agent.</oj-label>
+          <div id='loading' chroming='half' display='icons'>
+            <span class='oj-fwk-icon demo-loading-icon'></span>
+          </div>
+          <oj-bind-if test="[[$root.queuePos() >= 0]]">
+            <span class="queuePos" data-bind="text: 'You are currently #' + [[$root.queuePos()]] + ' in the queue, expected wait time is ' + [[$root.waitTime()]]">
+            </span>
+          </oj-bind-if>
+          <oj-bind-if test="[[$root.queuePos() < 0]]">
+            <span class="queuePos" data-bind="text: 'Calculating queue position and wait time.'">
+            </span>
+          </oj-bind-if>
+        </div>
+      </div>
+
+        <oj-bind-if test="[[$parents[0].agentResponding()]]">
+          <div id="responding">
+            <oj-button display="icons" chroming="half">
+              <span slot="startIcon" class="demo-responding-icon demo-icon-font-24"></span>
+              <span>Agent is responding</span>
+            </oj-button>
+          </div>
+        </oj-bind-if>
+
+
+
+      </div>
+    </div>
+    <div id='bottomPanel' class='oj-applayout-fixed-bottom'>
+      <footer class="oj-hybrid-applayout-footer">
+        <oj-bind-if test="[[$root.showChatTranscript()]]">
+          <div id="newMessageContainer" class="oj-flex-bar-start">
+            <oj-input-text id="newMessage" class='oj-md-label-inline' value="{{$root.newMessage}}" disable='[[$root.isChatActive()]] == false? disable: none'></oj-input-text>
+          </div>
+          <div class="oj-flex-bar-end" id="sendMessageBtn">
+            <oj-button display="icons" chroming="half" on-oj-action="[[$root.onSendClicked]]" disable='[[$root.isChatActive()]] == false? disable: none'>
+              <span slot="startIcon" class="btnSend demo-location-icon-24 demo-icon-font-24"></span>
+              <span>Send</span>
+            </oj-button>
+          </div>
+        </oj-bind-if>
+      </footer>
+    </div>
+  </div>

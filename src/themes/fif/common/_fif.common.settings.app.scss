@@ -1,0 +1,57 @@
+
+
+$fifCommonImageDir: "../../images/" !default;
+$fifCommonFontDir:   "../../fonts/" !default;
+
+$fifPaginationDotBgColor: $secondaryTextColor !default;
+
+// priority colors apply to the dashboard text and also the icon border
+$fifHighPriorityIconColor:         #f0403a !default;
+$fifNormalPriorityIconColor:       #377db3 !default;
+$fifLowPriorityIconColor:          #608c49 !default;
+
+$fifOpenStatusIconColor:           #8d909b !default;
+$fifAcceptedStatusIconColor:       #269e9e !default;
+$fifClosedStatusIconColor:         #d97638 !default;
+
+$fifTourSubtitleColor:         #b7b9bc !default;
+
+$fifDashboardBgColor:          #e7ebef !default;
+$fifDashboardBarChartBgColor:  #3B3D3F !default;
+
+// fab = floating action button
+$fifFabBoxShadowColor:         #9c9c9c !default;
+
+$fifPrimaryLabelColor:         $headerTextColor !default;
+$fifSecondaryLabelColor:       $secondaryTextColor !default;
+
+$fifAboutPageHeaderColor:      #fff !default;
+
+$fifMobileIconBgColor:         #0572ce !default;
+$fifOfficeIconBgColor:         #F7BB47 !default;
+$fifEmailIconBgColor:          #17ABE3 !default;
+$fifAddressIconBgColor:        #de893e !default;
+
+$fifRssIconBgColor:            #7DBD5B !default;
+$fifTwitterIconBgColor:        #3FBFF5 !default;
+$fifChatIconBgColor:           #027BC7 !default;
+$fifLoadingIconBgColor:        rgba(255, 255, 255, .4) !default;
+$fifRespondingIconBgColor:     #E7EBEF !default;
+$fifYoutubeIconBgColor:        #E14937 !default;
+$fifGplusIconBgColor:          #238BC7 !default;
+
+$fifChatAlertBgColor:          #ff302b !default;
+
+$fifColoredGradiantDarkColor:  #0571CD !default;
+$fifColoredGradiantLightColor:    #058EFF !default;
+
+$fifNeutralGradiantDarkColor:     #ebebeb !default;
+$fifNeutralGradiantLightColor:    #F9F9F9 !default;
+
+$fifGradientBgPaddingTop:      30px !default;
+$fifProfilePhotoContainerSize: 106px !default;
+$fifProfilePhotoSize:          98px !default;
+
+// chart
+$fifChartTitleColor:           #C4C2C2 !default;
+

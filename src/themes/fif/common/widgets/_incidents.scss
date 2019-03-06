@@ -1,0 +1,210 @@
+// todo: what is the difference between the incident file and the incidents file?
+
+/* ------------------------------------------------------ */
+/* dashboard style */
+.demo-dashboard-container {
+  background-color: $fifDashboardBgColor;
+  overflow: auto;
+  text-align: center;
+  height: 100%;
+}
+
+.demo-dashboard-title {
+  color: $secondaryTextColor;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.demo-dashboard-chart-title {
+  text-align: center;
+  font-size: 1rem;
+  color: $fifChartTitleColor;
+  padding-top: 5px;
+}
+
+.demo-pie-chart-container {
+  position: relative;
+  min-height: 150px;
+}
+
+.demo-pie-chart {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.demo-bar-chart-container {
+  background-color: $fifDashboardBarChartBgColor;
+  overflow: hidden;
+}
+
+.demo-bar-chart {
+  max-width:500px;
+  width:100%;
+  max-height:200px;
+  height: 200px;
+  margin: auto;
+}
+
+/* dashboard incidents counter label style */
+.demo-counter-label {
+  text-align: center;
+  font-size: 0.875rem;
+  color: $secondaryTextColor;
+}
+
+.demo-highcolor,
+.demo-normalcolor,
+.demo-lowcolor {
+  font-size: 1.5rem;
+}
+
+.demo-highcolor { color: $fifHighPriorityIconColor; }
+.demo-normalcolor { color: $fifNormalPriorityIconColor; }
+.demo-lowcolor { color: $fifLowPriorityIconColor; }
+
+/* -------------------------------------------------------- */
+/* incidents filter popup style */
+.demo-filter-popup.demo-popup {
+  min-width: 300px;
+  background-color: $neutralColor1;
+  border-radius: 10px;
+}
+
+.demo-filter-form-category-label {
+  background-color: $headerBgColor;
+}
+
+/* -------------------------------------------------------- */
+/* incidents list style */
+.demo-incidents-list-item-start {
+  padding-right: 0.5rem;
+  min-width: 3rem;
+}
+
+.demo-incidents-list-item-problem {
+  font-size: 1.063rem;
+  color: $fifPrimaryLabelColor;
+  margin-right: 10px;
+}
+
+.demo-incidents-list-item-status {
+  font-size: 0.938rem;
+  color: $fifPrimaryLabelColor;
+}
+
+.demo-incidents-list-item-priority {
+  text-transform: uppercase;
+  font-size: 0.5rem;
+  color: $textColor;
+  padding-top:0.2rem;
+}
+
+.demo-incidents-list-item-customer {
+  color: $fifSecondaryLabelColor;
+  font-size: 0.875rem;
+}
+
+.demo-incidents-list-item-customer.oj-flex-bar-start {
+  margin-right: 10px;
+}
+
+.demo-icon-32 {
+  width: 32px;
+  height: 32px;
+}
+
+.demo-priority-high-icon {
+  background: url($fifCommonImageDir + "high_priority.svg") no-repeat center center;
+  vertical-align:middle;
+}
+
+.demo-priority-normal-icon {
+  background: url($fifCommonImageDir + "med_priority.svg") no-repeat center center;
+  vertical-align:middle;
+}
+
+.demo-priority-low-icon {
+  background: url($fifCommonImageDir + "low_priority.svg") no-repeat center center;
+  vertical-align:middle;
+}
+
+.demo-status-open-icon {
+  background: url($fifCommonImageDir + "open.svg") no-repeat center center;
+  vertical-align:middle;
+}
+
+.demo-status-closed-icon {
+  background: url($fifCommonImageDir + "closed.svg") no-repeat center center;
+  vertical-align:middle;
+}
+
+.demo-status-accepted-icon {
+  background: url($fifCommonImageDir + "accepted.svg") no-repeat center center;
+  vertical-align:middle;
+}
+
+
+@mixin incidentsIconColorMixin($color) {
+  border-color: $color;
+  color: $color;
+}
+
+.demo-status-closed {
+  @include incidentsIconColorMixin($fifClosedStatusIconColor);
+}
+
+.demo-status-open {
+  @include incidentsIconColorMixin($fifOpenStatusIconColor);
+}
+
+.demo-status-accepted {
+  @include incidentsIconColorMixin($fifAcceptedStatusIconColor);
+}
+
+.demo-priority-high {
+  @include incidentsIconColorMixin($fifHighPriorityIconColor);
+}
+
+.demo-priority-normal {
+  @include incidentsIconColorMixin($fifNormalPriorityIconColor);
+}
+
+.demo-priority-low {
+  @include incidentsIconColorMixin($fifLowPriorityIconColor);
+}
+
+/* incidents list item icons */
+.demo-incident-icon {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.demo-category-plumbing-high { background: url($fifCommonImageDir + "incident_icons/water_red.svg") no-repeat center center; background-size: 15px; }
+.demo-category-plumbing-normal { background: url($fifCommonImageDir + "incident_icons/water_blue.svg") no-repeat center center; background-size: 15px; }
+.demo-category-plumbing-low { background: url($fifCommonImageDir + "incident_icons/water_green.svg") no-repeat center center; background-size: 15px; }
+.demo-category-general-high { background: url($fifCommonImageDir + "incident_icons/home_red.svg") no-repeat center center; background-size: 15px; }
+.demo-category-general-normal { background: url($fifCommonImageDir + "incident_icons/home_blue.svg") no-repeat center center; background-size: 15px; }
+.demo-category-general-low { background: url($fifCommonImageDir + "incident_icons/home_green.svg") no-repeat center center; background-size: 15px; }
+.demo-category-heatingcooling-high { background: url($fifCommonImageDir + "incident_icons/gas_red.svg") no-repeat center center; background-size: 15px; }
+.demo-category-heatingcooling-normal { background: url($fifCommonImageDir + "incident_icons/gas_blue.svg") no-repeat center center; background-size: 15px; }
+.demo-category-heatingcooling-low { background: url($fifCommonImageDir + "incident_icons/gas_green.svg") no-repeat center center; background-size: 15px; }
+.demo-category-appliance-high { background: url($fifCommonImageDir + "incident_icons/appliance_red.svg") no-repeat center center; background-size: 15px; }
+.demo-category-appliance-normal { background: url($fifCommonImageDir + "incident_icons/appliance_blue.svg") no-repeat center center; background-size: 15px; }
+.demo-category-appliance-low { background: url($fifCommonImageDir + "incident_icons/appliance_green.svg") no-repeat center center; background-size: 15px; }
+.demo-category-electrical-high { background: url($fifCommonImageDir + "incident_icons/electric_red.svg") no-repeat center center; background-size: 15px; }
+.demo-category-electrical-normal { background: url($fifCommonImageDir + "incident_icons/electric_blue.svg") no-repeat center center; background-size: 15px; }
+.demo-category-electrical-low { background: url($fifCommonImageDir + "incident_icons/electric_green.svg") no-repeat center center; background-size: 15px; }
+
+// filter icon
+.demo-filter-icon::before {
+  content: "\e907";
+}
+
+// remove padding on list item
+.demo-no-padding-li .oj-listview-item {
+  padding: 0;
+}
