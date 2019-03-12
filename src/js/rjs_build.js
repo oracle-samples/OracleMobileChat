@@ -14,12 +14,6 @@
       create: true,
       include: ['ojs/ojswipetoreveal', 'ojs/ojoffcanvas', 'ojs/ojpulltorefresh', 'ojs/ojlistview', 'ojs/ojarraytabledatasource'],
       exclude: ['jquery']
-    },
-    {
-      name: "rjs_bundles/mapviewBundle",
-      create: true,
-      include: ['oraclemapviewer', 'oracleelocation'],
-      exclude: ['jquery']
     }
   ],
   paths:
