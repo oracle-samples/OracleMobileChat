@@ -1,4 +1,4 @@
-# Oracle Mobile Chat
+Oracle Mobile Chat
 
 You may not use the identified files except in compliance with the
 Universal Permissive License (UPL), Version 1.0 (the "License.")
@@ -15,7 +15,7 @@ implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-```
+
 Copyright © 2018, Oracle and/or its affiliates. All rights reserved.
 
 The Universal Permissive License (UPL), Version 1.0
@@ -53,4 +53,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
 IN THE SOFTWARE.
-```
+
