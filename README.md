@@ -3,20 +3,9 @@ ADDITIONAL INSTALLATION INFORMATION
 
 *This sample application is intended to illustrate the use of Chat REST APIs for [Oracle Service Cloud ](https://docs.oracle.com/en/cloud/saas/service/19a/cxscc/toc.htm) and [Oracle Engagement Cloud ](https://docs.oracle.com/en/cloud/saas/engagement/19a/facoe/index.html). These APIs can be used to build custom chat interfaces for web and mobile apps. It is built using [Oracle JET](https://www.oracle.com/webfolder/technetwork/jet/index.html). To take complete advantage of this sample application, please follow the additional installation instructions below.*
 
-1. Prerequisites for Windows / MAC. if deploying on Oracle Linux, skip this step and jump to step #2 
+1. Prerequisites 
     1.  Install node.js (8.x) and npm by going to [Nodejs](https://nodejs.org/en/)
     2.  Download and install python (2.x) from [Python](https://www.python.org/)
-    3.  Install [Oracle OJET CLI](https://www.oracle.com/webfolder/technetwork/jet/index.html)
-        >npm install -g @oracle/ojet-cli
-    4.  Install [Oracle OJET tooling](https://www.oracle.com/webfolder/technetwork/jet/index.html)
-        >npm install -g @oracle/oraclejet-tooling
-    5.  Install [Cordova](https://cordova.apache.org/) 
-        >npm install -g cordova
-    6.  Install [node-gyp](https://github.com/nodejs/node-gyp)
-        >npm install -g node-gyp 
-2. Prerequisites for Oracle Linux. If deploying on Windows / Mac, skip this step and follow #1 instead:
-    1. Start with an [Oracle Linux 7 Vigrant box on Virtualbox](https://github.com/oracle/vagrant-boxes/tree/master/OracleLinux/7)
-    2. Download and install node.js (8.x) and npm by going to [Nodejs](https://nodejs.org/en/)
     3.  Install [Oracle OJET CLI](https://www.oracle.com/webfolder/technetwork/jet/index.html)
         >npm install -g @oracle/ojet-cli
     4.  Install [Oracle OJET tooling](https://www.oracle.com/webfolder/technetwork/jet/index.html)
