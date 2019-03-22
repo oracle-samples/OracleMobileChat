@@ -1,8 +1,9 @@
-/**
- * @license
- * Copyright (c) 2018, Oracle and/or its affiliates. All rights reserved.
- * The Universal Permissive License (UPL), Version 1.0
- */
+/*
+** Oracle Mobile Chat version 1.0.
+**
+** Copyright © 2019 Oracle Corp.  All rights reserved.
+** Licensed under the Universal Permissive License v 1.0 as shown at http://oss.oracle.com/licenses/upl.
+*/
 /**
  * Example of Require.js boostrap javascript
  */
@@ -13,7 +14,6 @@ requirejs.config({
   //injector:mainReleasePaths
   {
     'knockout': 'libs/knockout/knockout-3.4.2.debug',
-    'mapping': 'libs/knockout/knockout.mapping',
     'jquery': 'libs/jquery/jquery-3.3.1',
     'jqueryui-amd': 'libs/jquery/jqueryui-amd-1.12.1',
     'customElements': 'libs/webcomponents/custom-elements.min',
