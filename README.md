@@ -1,4 +1,6 @@
-ADDITIONAL INSTALLATION INFORMATION
+# Oracle Mobile Chat
+
+## Installation
 -----------------------------------
 
 *This sample application is intended to illustrate the use of Chat REST APIs for [Oracle Service Cloud ](https://docs.oracle.com/en/cloud/saas/service/19a/cxscc/toc.htm) and [Oracle Engagement Cloud ](https://docs.oracle.com/en/cloud/saas/engagement/19a/facoe/index.html). These APIs can be used to build custom chat interfaces for web and mobile apps. It is built using [Oracle JET](https://www.oracle.com/webfolder/technetwork/jet/index.html). To take complete advantage of this sample application, please follow the additional installation instructions below.*
@@ -46,3 +48,18 @@ ADDITIONAL INSTALLATION INFORMATION
       your signing credentials.  For more information about this, refer to the JET Developer Guide.
 
 6. (Optional) For details on Enabling a full access backend, Enabling push notifications or Enabling and Debugging service worker, please refer to original [FixItFast](https://www.oracle.com/webfolder/technetwork/jet-420/globalExamples-App-FixItFast.html) app
+
+## Contributing
+
+This project is not accepting external contributions at this time. For bugs or enhancement requests, please file a GitHub issue unless it’s security related. When filing a bug remember that the better written the bug is, the more likely it is to be fixed. If you think you’ve found a security vulnerability, do not raise a GitHub issue and follow the instructions in our [security policy](./SECURITY.md).
+
+## Security
+
+Please consult the [security guide](./SECURITY.md) for our responsible security vulnerability disclosure process
+
+## License
+
+Copyright (c) 2018, 2023 Oracle and/or its affiliates.
+
+Released under the Universal Permissive License v1.0 as shown at
+<https://oss.oracle.com/licenses/upl/>.
